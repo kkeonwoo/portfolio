@@ -1,0 +1,29 @@
+@import "vars";
+@import "mixin";
+@import "font";
+
+#opening {
+  width: 100vw;
+  height: 100vh;
+  .rect {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    perspective: 800px;
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: all 0.25s ease-in-out;
+      &.hover:hover {
+        transform: scale(1.1);
+        border: 1px solid #fff;
+      }
+    }
+  }
+}

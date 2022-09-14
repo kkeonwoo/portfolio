@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "644Number";
+  src: url("../font/644RoomNumber.woff2") format("woff2");
+}
+@font-face {
+  font-family: "HelveticaMedium";
+  src: url("../font/HelveticaNowDisplayMedium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "HelveticaRegular";
+  src: url("../font/HelveticaNowDisplayRegular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NotoSansKR-Bold";
+  src: url("../font/NotoSansKR-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NotoSansKR-Medium";
+  src: url("../font/NotoSansKR-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "RecoletRegular";
+  src: url("../font/RecoletaRegular.woff2") format("woff2");
+}
+body {
+  font-family: "Old Standard TT", "Noto Sans KR", "Literata", serif;
+  background-color: #111;
+  color: #fff;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -80px;
+  padding: 0 50px;
+  transition: all 0.4s ease;
+}
+#header.on {
+  top: 0;
+}
+
+#logo {
+  width: 100px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+#gnb .list {
+  display: flex;
+}
+#gnb .list > li {
+  margin-left: 40px;
+  color: #999;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+#gnb .list > li:before {
+  display: block;
+  position: absolute;
+  content: "";
+  background-image: url("../images/main/Star 1.png");
+  background-position: 50%;
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+  top: -120%;
+  left: 10%;
+  opacity: 0;
+  transition: all 0.2s ease-in 0.1s;
+}
+#gnb .list > li.click {
+  color: #fff;
+  font-weight: 500;
+}
+#gnb .list > li:hover {
+  color: #fff;
+  font-weight: 500;
+}
+#gnb .list > li:hover::before {
+  top: -95%;
+  opacity: 1;
+}

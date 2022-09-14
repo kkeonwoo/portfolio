@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="KOR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEE KEON WOO's PORTFOLIO</title>
+    <!-- link-favicon -->
+    <link rel="shortcut icon" href="../images/common/nc644-favicon.png" type="image/x-icon" />
+    <!-- link-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700;7..72,800;7..72,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Old+Standard+TT:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css-reset -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <!-- link-css -->
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <!-- link-js -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/greensock/gsap.min.js"></script>
+    <script src="../js/greensock/CSSRulePlugin.min.js"></script>
+    <script src="../js/greensock/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <h1 id="logo">F I L E</h1>
+      <nav id="gnb">
+        <h2 class="blind">gnb</h2>
+        <ul class="list">
+          <li class="click">
+            <a href="#" class="depth01">( ABOUT ME )</a>
+          </li>
+          <li>
+            <a href="#" class="depth01">( PORTFOLIO )</a>
+          </li>
+          <li>
+            <a href="#" class="depth01">( CONTACT )</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- //header -->
+    <!-- main -->
+    <main id="main">
+      <!-- opening -->
+      <section id="opening" class="section">
+        <div class="rect"></div>
+      </section>
+      <section id="mainVisual"></section>
+      <section id="aboutMe"></section>
+      <section id="portfolio"></section>
+      <section id="contact"></section>
+      <!-- //opening -->
+    </main>
+    <!-- //main -->
+    <!-- footer -->
+    <footer id="footer"></footer>
+    <!-- //footer -->
+    <div id="mousePointer"></div>
+    <!-- script -->
+    <script>
+      // header classToggle
+      $("#gnb .list >li").on("click", function (e) {
+        e.preventDefault();
+        $(this).addClass("click").siblings().removeClass("click");
+      });
+
+      //mousePointer
+      $("#mousePointer").on("mousemove", function (e) {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        // gsap.to($(this),{left:posX,top:posY,ease:""})
+      });
+
+      //opening event
+      for (let i = 0; i < 312; i++) {
+        if (i < 312 / 3) {
+          $(".rect").append(`<span class="hover row01"></span>`);
+        } else if (i > 312 / 3 && i < 312 - 312 / 3) {
+          $(".rect").append(`<span class="hover row02"></span>`);
+        } else {
+          $(".rect").append(`<span class="hover row03"></span>`);
+        }
+      }
+      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      let clickCount = 0;
+      $(".rect span").on("click", function (e) {
+        clickCount++;
+        gsap.to($(this), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+        if (clickCount >= 3) {
+          // 애니메이션 시작
+          const openingTL = gsap.timeline();
+          openingTL
+            .to(".rect span", {
+              backgroundColor: (idx, item) => {
+                return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+              },
+              stagger: { each: 0.01, from: "random" },
+              onUpdate: () => {
+                $(".rect span").removeClass("hover");
+              },
+            })
+            .addLabel("rotate")
+            .to(
+              ".rect .row01",
+              {
+                rotateY: 180,
+                stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+              },
+              "rotate"
+            )
+            .to(
+              ".rect .row03",
+              {
+                rotateY: 180,
+                stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+              },
+              "rotate"
+            )
+            .to(".rect .row02", {
+              rotateY: 180,
+              stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+            });
+        }
+      });
+    </script>
+    <!-- //script -->
+  </body>
+</html>
