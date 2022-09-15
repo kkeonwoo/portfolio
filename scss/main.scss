@@ -129,6 +129,49 @@
 
 #portfolio {
   overflow: hidden;
+  .swiper-slide {
+    text-align: center;
+    &:hover {
+      .imgBox {
+        bottom: 20px;
+      }
+      .btns {
+        display: flex;
+      }
+    }
+    .txtBox {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .listNum {
+        font-size: $font-large;
+      }
+      .title strong {
+        font-size: $font-extra-large;
+        display: block;
+        margin: 10px 0 20px;
+      }
+    }
+    .btns {
+      @include absCenter(true, true);
+      top: 50%;
+      display: none;
+      button {
+        .btn {
+          padding: 20px 40px;
+          display: block;
+          border-radius: 40px;
+          background-color: #fff;
+        }
+      }
+    }
+    .imgBox {
+      position: absolute;
+      bottom: -200px;
+      left: 50%;
+      transition: bottom 0.3s ease-in-out;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 #mousePointer {
