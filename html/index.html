@@ -20,12 +20,14 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/fullpage.css" />
     <!-- link-js -->
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/imagesloaded.pkgd.min.js"></script>
     <script src="../js/greensock/gsap.min.js"></script>
     <script src="../js/greensock/CSSRulePlugin.min.js"></script>
     <script src="../js/greensock/ScrollTrigger.min.js"></script>
+    <script src="../js/fullpage.min.js"></script>
   </head>
   <body>
     <!-- header -->
@@ -48,9 +50,9 @@
     </header>
     <!-- //header -->
     <!-- main -->
-    <main id="main">
+    <main id="fullpage">
       <!-- opening -->
-      <section id="opening" class="section">
+      <section id="opening">
         <!-- <div class="rect"></div> -->
         <div class="txtBox">
           <p><span>매일 분석과 학습을 통한 성장이 기록된</span></p>
@@ -58,20 +60,39 @@
           <span>PORTFOLIO FOUNDED IN LEE's ESSENTIAL</span>
         </div>
       </section>
-      <section id="mainVisual">
-        <div class="txtBox">
-          <h2 class="title">
-            <span>나를 채우는 < <strong>: 빈칸</strong> ></span>
-          </h2>
-          <p class="desc">
-            빈칸은 비어있는 공간이자 동시에 <strong>채울 수 있는 공간</strong>을 의미합니다. <br />
-            개발자가 되기 위한 <strong>빈칸을 여백 없이 채우고 있는 이건우</strong>입니다.
-          </p>
+      <section id="mainVisual" class="section">
+        <div class="inner">
+          <div class="txtBox">
+            <h2 class="title">
+              <span>나를 채우는 < <strong>: 빈칸</strong> ></span>
+            </h2>
+            <p class="desc">
+              빈칸은 비어있는 공간이자 동시에 <strong>채울 수 있는 공간</strong>을 의미합니다. <br />
+              개발자가 되기 위한 <strong>빈칸을 여백 없이 채우고 있는 이건우</strong>입니다.
+            </p>
+          </div>
         </div>
       </section>
-      <section id="aboutMe"></section>
-      <section id="portfolio"></section>
-      <section id="contact"></section>
+      <section id="aboutMe" class="section">
+        <div class="inner">
+          <div class="txtBox">
+            <h2 class="title"><strong>ABOUT</strong></h2>
+          </div>
+          <div class="contents">
+            <div class="contentTitle">
+              <span> function ( ) </span>
+              <span>
+                { <br />
+                return <br />
+                }
+              </span>
+            </div>
+            <div class="contentBox"></div>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio" class="section"></section>
+      <section id="contact" class="section"></section>
       <!-- //opening -->
     </main>
     <!-- //main -->
@@ -81,6 +102,12 @@
     <div id="mousePointer"></div>
     <!-- script -->
     <script>
+      // //fullpage
+      // $("#fullpage").fullpage({
+      //   navigation: true,
+      //   navigationTooltips: ["ABOUT ME", "PORTFOLIO", "CONTACT"],
+      //   showActiveTooltip: true,
+      // });
       // header classToggle
       $("#gnb .list >li").on("click", function (e) {
         e.preventDefault();

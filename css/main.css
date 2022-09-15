@@ -22,20 +22,32 @@
   font-family: "RecoletRegular";
   src: url("../font/RecoletaRegular.woff2") format("woff2");
 }
-section {
-  height: 100vh;
-}
-
 .txtBox {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   letter-spacing: -1px;
+}
+.txtBox .title strong {
+  font-weight: 800;
+  font-size: 36px;
+}
+
+.inner {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.section {
+  border: 1px solid #fff;
+  height: 100vh;
+  position: relative;
 }
 
 #opening {
   text-align: center;
+  height: 100vh;
 }
 #opening .rect {
   height: 100%;
@@ -60,6 +72,10 @@ section {
   border: 1px solid #fff;
 }
 #opening .txtBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 24px;
 }
 #opening .txtBox span {
@@ -82,18 +98,16 @@ section {
   margin-bottom: 10px;
 }
 
-#mainVisual {
-  position: relative;
-  text-align: center;
+#mainVisual .txtBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
 }
 #mainVisual .txtBox .title {
   font-size: 28px;
   font-weight: 500;
   margin-bottom: 20px;
-}
-#mainVisual .txtBox .title strong {
-  font-weight: 800;
-  font-size: 36px;
 }
 #mainVisual .txtBox .desc {
   line-height: 1.5;
@@ -101,6 +115,41 @@ section {
 #mainVisual .txtBox .desc strong {
   font-weight: 800;
   font-size: 18px;
+}
+
+#aboutMe .inner .txtBox {
+  top: 20%;
+}
+#aboutMe .inner .txtBox .title {
+  position: relative;
+}
+#aboutMe .inner .txtBox .title::before {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 150px;
+  height: 100px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../images/main/aboutTitleBg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+#aboutMe .inner .contents {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#aboutMe .inner .contents .contentTitle {
+  display: flex;
+}
+#aboutMe .inner .contents .contentTitle span {
+  display: block;
 }
 
 #mousePointer {
