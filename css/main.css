@@ -147,9 +147,14 @@
 }
 #aboutMe .inner .contents .contentTitle {
   display: flex;
+  font-size: 28px;
 }
-#aboutMe .inner .contents .contentTitle span {
-  display: block;
+#aboutMe .inner .contents .contentTitle pre {
+  line-height: 1.5;
+}
+
+#portfolio {
+  overflow: hidden;
 }
 
 #mousePointer {

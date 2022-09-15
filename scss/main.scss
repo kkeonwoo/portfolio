@@ -118,12 +118,17 @@
       align-items: center;
       .contentTitle {
         display: flex;
-        span {
-          display: block;
+        font-size: $font-medium;
+        pre {
+          line-height: 1.5;
         }
       }
     }
   }
+}
+
+#portfolio {
+  overflow: hidden;
 }
 
 #mousePointer {
