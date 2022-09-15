@@ -2,9 +2,17 @@
 @import "mixin";
 @import "font";
 
-#opening {
-  width: 100vw;
+section {
   height: 100vh;
+}
+
+.txtBox {
+  @include absCenter(true, true);
+  letter-spacing: -1px;
+}
+
+#opening {
+  text-align: center;
   .rect {
     height: 100%;
     display: flex;
@@ -24,6 +32,48 @@
       &.hover:hover {
         transform: scale(1.1);
         border: 1px solid #fff;
+      }
+    }
+  }
+  .txtBox {
+    font-size: $font-medium - 4;
+    span {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 80%, rgba(2555, 255, 255, 0.5) 100%);
+      background-clip: text; // 요소의 배경을 텍스트 부분에만 적용
+      -webkit-background-clip: text;
+      color: transparent; // 텍스트가 그대로 있으면 뒤에 배경이 보이지 않기 때문에, 투명 처리
+    }
+    p {
+      display: block;
+      width: 100%;
+      @include absCenter(true, true);
+    }
+    h2 {
+      font-size: $font-medium + 8;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+#mainVisual {
+  position: relative;
+  text-align: center;
+  .txtBox {
+    .title {
+      font-size: $font-medium;
+      font-weight: 500;
+      margin-bottom: 20px;
+      strong {
+        font-weight: 800;
+        font-size: $font-medium + 8;
+      }
+    }
+    .desc {
+      line-height: 1.5;
+      strong {
+        font-weight: 800;
+        font-size: 18px;
       }
     }
   }

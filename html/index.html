@@ -29,7 +29,7 @@
   </head>
   <body>
     <!-- header -->
-    <header id="header">
+    <header id="header" class="on">
       <h1 id="logo">F I L E</h1>
       <nav id="gnb">
         <h2 class="blind">gnb</h2>
@@ -51,9 +51,24 @@
     <main id="main">
       <!-- opening -->
       <section id="opening" class="section">
-        <div class="rect"></div>
+        <!-- <div class="rect"></div> -->
+        <div class="txtBox">
+          <p><span>매일 분석과 학습을 통한 성장이 기록된</span></p>
+          <h2><span>F I L E</span></h2>
+          <span>PORTFOLIO FOUNDED IN LEE's ESSENTIAL</span>
+        </div>
       </section>
-      <section id="mainVisual"></section>
+      <section id="mainVisual">
+        <div class="txtBox">
+          <h2 class="title">
+            <span>나를 채우는 < <strong>: 빈칸</strong> ></span>
+          </h2>
+          <p class="desc">
+            빈칸은 비어있는 공간이자 동시에 <strong>채울 수 있는 공간</strong>을 의미합니다. <br />
+            개발자가 되기 위한 <strong>빈칸을 여백 없이 채우고 있는 이건우</strong>입니다.
+          </p>
+        </div>
+      </section>
       <section id="aboutMe"></section>
       <section id="portfolio"></section>
       <section id="contact"></section>
@@ -79,16 +94,16 @@
         gsap.to("#mousePointer", { left: `${posX}`, top: `${posY}`, ease: "power2", duration: 0.3 });
       });
 
-      //opening event
-      for (let i = 0; i < 312; i++) {
-        if (i < 312 / 3) {
-          $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
-          $(".rect").append(`<span class="hover row02"></span>`);
-        } else {
-          $(".rect").append(`<span class="hover row03"></span>`);
-        }
-      }
+      // opening event
+      // for (let i = 0; i < 312; i++) {
+      //   if (i < 312 / 3) {
+      //     $(".rect").append(`<span class="hover row01"></span>`);
+      //   } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
+      //     $(".rect").append(`<span class="hover row02"></span>`);
+      //   } else {
+      //     $(".rect").append(`<span class="hover row03"></span>`);
+      //   }
+      // }
       const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
       let clickCount = 0;
       $(".rect span").on("click", function (e) {
@@ -138,6 +153,41 @@
             });
         }
       });
+
+      // openingTxt timeline
+      const openingTxtTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#opening",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          markers: true,
+          pin: true,
+        },
+      });
+      openingTxtTL
+        .from("#opening .txtBox p", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "linear",
+          onComplete: () => {
+            gsap.to("#opening .txtBox p", { opacity: 0, duration: 0.25, ease: "linear" });
+          },
+        })
+        .from("#opening .txtBox h2", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "linear",
+          delay: 0.4,
+        })
+        .from("#opening .txtBox >span", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "linear",
+        });
     </script>
     <!-- //script -->
   </body>

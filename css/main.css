@@ -22,9 +22,20 @@
   font-family: "RecoletRegular";
   src: url("../font/RecoletaRegular.woff2") format("woff2");
 }
-#opening {
-  width: 100vw;
+section {
   height: 100vh;
+}
+
+.txtBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: -1px;
+}
+
+#opening {
+  text-align: center;
 }
 #opening .rect {
   height: 100%;
@@ -47,6 +58,49 @@
 #opening .rect span.hover:hover {
   transform: scale(1.1);
   border: 1px solid #fff;
+}
+#opening .txtBox {
+  font-size: 24px;
+}
+#opening .txtBox span {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.5) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#opening .txtBox p {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#opening .txtBox h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+#mainVisual {
+  position: relative;
+  text-align: center;
+}
+#mainVisual .txtBox .title {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#mainVisual .txtBox .title strong {
+  font-weight: 800;
+  font-size: 36px;
+}
+#mainVisual .txtBox .desc {
+  line-height: 1.5;
+}
+#mainVisual .txtBox .desc strong {
+  font-weight: 800;
+  font-size: 18px;
 }
 
 #mousePointer {

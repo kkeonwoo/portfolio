@@ -39,6 +39,7 @@ body {
   top: -80px;
   padding: 0 50px;
   transition: all 0.4s ease;
+  z-index: 999;
 }
 #header.on {
   top: 0;
