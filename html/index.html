@@ -73,17 +73,17 @@
       });
 
       //mousePointer
-      $("#mousePointer").on("mousemove", function (e) {
+      $(window).on("mousemove", function (e) {
         const posX = e.clientX;
         const posY = e.clientY;
-        // gsap.to($(this),{left:posX,top:posY,ease:""})
+        gsap.to("#mousePointer", { left: `${posX}`, top: `${posY}`, ease: "power2", duration: 0.3 });
       });
 
       //opening event
       for (let i = 0; i < 312; i++) {
         if (i < 312 / 3) {
           $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i > 312 / 3 && i < 312 - 312 / 3) {
+        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
           $(".rect").append(`<span class="hover row02"></span>`);
         } else {
           $(".rect").append(`<span class="hover row03"></span>`);
@@ -111,7 +111,7 @@
             .to(
               ".rect .row01",
               {
-                rotateY: 180,
+                rotationY: 180,
                 stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
               },
               "rotate"
@@ -119,14 +119,22 @@
             .to(
               ".rect .row03",
               {
-                rotateY: 180,
+                rotationY: 180,
                 stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
               },
               "rotate"
             )
             .to(".rect .row02", {
-              rotateY: 180,
+              rotationY: 180,
               stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+            })
+            .to(".rect span", {
+              rotateY: -180,
+              backgroundColor: "#111",
+              stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+              onComplete: () => {
+                gsap.to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, durtaion: 0.8 });
+              },
             });
         }
       });
