@@ -82,12 +82,34 @@
       font-size: $font-medium;
       font-weight: 500;
       margin-bottom: 20px;
+      strong {
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 80%, rgba(2555, 255, 255, 0.3) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
     }
     .desc {
       line-height: 1.5;
+      color: #999;
       strong {
+        color: #fff;
         font-weight: 800;
         font-size: 18px;
+      }
+    }
+  }
+  .contents {
+    position: relative;
+    height: 100%;
+    .imgBox {
+      @include absCenter(false, true);
+      right: -300px;
+      display: flex;
+      justify-content: space-between;
+      img {
+        margin: -50px;
+        object-fit: contain;
       }
     }
   }
@@ -116,12 +138,28 @@
       height: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
       .contentTitle {
         display: flex;
         font-size: $font-medium;
-        pre {
-          line-height: 1.5;
+        text-align: center;
+        line-height: 1.5;
+        > li {
+          display: flex;
+          align-items: center;
+          .contentsTxt {
+            margin-right: 100px;
+            p {
+              display: block;
+              margin-top: 20px;
+              font-size: 16px;
+              color: #999;
+            }
+          }
         }
+        // pre {
+        //   line-height: 1.5;
+        // }
       }
     }
   }
@@ -135,9 +173,6 @@
       .imgBox {
         bottom: 20px;
       }
-      .btns {
-        display: flex;
-      }
     }
     .txtBox {
       left: 50%;
@@ -149,19 +184,6 @@
         font-size: $font-extra-large;
         display: block;
         margin: 10px 0 20px;
-      }
-    }
-    .btns {
-      @include absCenter(true, true);
-      top: 50%;
-      display: none;
-      button {
-        .btn {
-          padding: 20px 40px;
-          display: block;
-          border-radius: 40px;
-          background-color: #fff;
-        }
       }
     }
     .imgBox {

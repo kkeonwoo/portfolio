@@ -62,6 +62,7 @@
           <span>PORTFOLIO FOUNDED IN LEE's ESSENTIAL</span>
         </div>
       </section>
+      <!-- mainVisual -->
       <section id="mainVisual" class="section">
         <div class="inner">
           <div class="txtBox">
@@ -73,22 +74,44 @@
               개발자가 되기 위한 <strong>빈칸을 여백 없이 채우고 있는 이건우</strong>입니다.
             </p>
           </div>
+          <div class="contents">
+            <div class="imgBox">
+              <img src="../images/main/_Chevron_Left0000.png" alt="" />
+              <img src="../images/main/_Chevron_Right0000.png" alt="" />
+            </div>
+          </div>
         </div>
       </section>
+      <!-- mainVisual -->
       <section id="aboutMe" class="section">
         <div class="inner">
           <div class="txtBox">
             <h2 class="title"><strong>ABOUT</strong></h2>
           </div>
           <div class="contents">
-            <div class="contentTitle">
+            <!-- <div class="contentTitle">
               <pre>
 function (          ) { 
                             return 
                             }
               </pre>
             </div>
-            <div class="contentBox"></div>
+            <div class="contentBox"></div> -->
+            <ul class="contentTitle">
+              <li>
+                <div class="contentsTxt">
+                  <h3>
+                    개발부터 디자인까지 <br />
+                    솔루션을 위한 이론의 토대
+                  </h3>
+                  <p>TIS 정보기술교육학원 | 퍼블리셔 & 프론트엔드 개발자 양성 과정 수료</p>
+                </div>
+                <div class="imgBox">
+                  <img src="../images/main/tisLogo.png" alt="" />
+                </div>
+                <!-- <p>중앙대학교 산업디자인학과 졸업</p> -->
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -101,10 +124,6 @@ function (          ) {
               <p class="desc">DESC ABOUT PROJECT</p>
               <p class="usedTool">tool</p>
             </div>
-            <div class="btns">
-              <button><a href="" class="btn"></a></button>
-              <button><a href="" class="btn"></a></button>
-            </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
@@ -115,10 +134,6 @@ function (          ) {
               <h2 class="title"><strong>PROJECT</strong></h2>
               <p class="desc">DESC ABOUT PROJECT</p>
               <p class="usedTool">tool</p>
-            </div>
-            <div class="btns">
-              <button><a href="" class="btn"></a></button>
-              <button><a href="" class="btn"></a></button>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
@@ -131,10 +146,6 @@ function (          ) {
               <p class="desc">DESC ABOUT PROJECT</p>
               <p class="usedTool">tool</p>
             </div>
-            <div class="btns">
-              <button><a href="" class="btn"></a></button>
-              <button><a href="" class="btn"></a></button>
-            </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
@@ -146,10 +157,6 @@ function (          ) {
               <p class="desc">DESC ABOUT PROJECT</p>
               <p class="usedTool">tool</p>
             </div>
-            <div class="btns">
-              <button><a href="" class="btn"></a></button>
-              <button><a href="" class="btn"></a></button>
-            </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
@@ -160,10 +167,6 @@ function (          ) {
               <h2 class="title"><strong>PROJECT</strong></h2>
               <p class="desc">DESC ABOUT PROJECT</p>
               <p class="usedTool">tool</p>
-            </div>
-            <div class="btns">
-              <button><a href="" class="btn"></a></button>
-              <button><a href="" class="btn"></a></button>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
@@ -300,6 +303,22 @@ function (          ) {
           duration: 0.8,
           ease: "linear",
         });
+
+      // mainVisual imgMove
+      const imgMove = gsap.to("#mainVisual .imgBox img", {
+        y: Math.floor(Math.random() * (80 - 50) + 50),
+        ease: "back.inOut",
+        duration: Math.random() * (4 - 2) + 2,
+        yoyo: true,
+        repeat: -1,
+        stagger: { each: Math.floor(Math.random() * (2 - 1) + 1) },
+      });
+      $("#mainVisual .imgBox").on("mouseenter", function () {
+        gsap.to("#mainVisual img", { margin: 0, duration: 2, ease: "back.in(1.7)" });
+      });
+      $("#mainVisual .imgBox").on("mouseleave", function () {
+        gsap.to("#mainVisual img", { margin: -50, duration: 2, ease: "back.in(1.7)" });
+      });
     </script>
     <!-- //script -->
   </body>

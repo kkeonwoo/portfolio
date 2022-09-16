@@ -109,12 +109,36 @@
   font-weight: 500;
   margin-bottom: 20px;
 }
+#mainVisual .txtBox .title strong {
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgb(255, 255, 255) 30%, rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.3) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 #mainVisual .txtBox .desc {
   line-height: 1.5;
+  color: #999;
 }
 #mainVisual .txtBox .desc strong {
+  color: #fff;
   font-weight: 800;
   font-size: 18px;
+}
+#mainVisual .contents {
+  position: relative;
+  height: 100%;
+}
+#mainVisual .contents .imgBox {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -300px;
+  display: flex;
+  justify-content: space-between;
+}
+#mainVisual .contents .imgBox img {
+  margin: -50px;
+  object-fit: contain;
 }
 
 #aboutMe .inner .txtBox {
@@ -144,13 +168,26 @@
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 #aboutMe .inner .contents .contentTitle {
   display: flex;
   font-size: 28px;
-}
-#aboutMe .inner .contents .contentTitle pre {
+  text-align: center;
   line-height: 1.5;
+}
+#aboutMe .inner .contents .contentTitle > li {
+  display: flex;
+  align-items: center;
+}
+#aboutMe .inner .contents .contentTitle > li .contentsTxt {
+  margin-right: 100px;
+}
+#aboutMe .inner .contents .contentTitle > li .contentsTxt p {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #999;
 }
 
 #portfolio {
@@ -161,9 +198,6 @@
 }
 #portfolio .swiper-slide:hover .imgBox {
   bottom: 20px;
-}
-#portfolio .swiper-slide:hover .btns {
-  display: flex;
 }
 #portfolio .swiper-slide .txtBox {
   left: 50%;
@@ -176,20 +210,6 @@
   font-size: 64px;
   display: block;
   margin: 10px 0 20px;
-}
-#portfolio .swiper-slide .btns {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  display: none;
-}
-#portfolio .swiper-slide .btns button .btn {
-  padding: 20px 40px;
-  display: block;
-  border-radius: 40px;
-  background-color: #fff;
 }
 #portfolio .swiper-slide .imgBox {
   position: absolute;
