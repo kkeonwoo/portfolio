@@ -83,7 +83,7 @@
       font-weight: 500;
       margin-bottom: 20px;
       strong {
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 80%, rgba(2555, 255, 255, 0.3) 100%);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 80%, rgba(2555, 255, 255, 0.5) 100%);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -169,12 +169,37 @@
   overflow: hidden;
   .swiper-slide {
     text-align: center;
+    position: relative;
+    &::before {
+      @include pseudo;
+      @include box(100%, 100%, rgba(0, 0, 0, 0.6));
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    &::after {
+      @include pseudo;
+      @include box(100%, 100%, transparent);
+      background: {
+        image: url("../images/main/644_thumbnail.png");
+        size: cover;
+        position: 50% 50%;
+        repeat: no-repeat;
+        z-index: -1;
+      }
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
     &:hover {
       .imgBox {
         bottom: 20px;
       }
+      &::after {
+        opacity: 1;
+      }
     }
     .txtBox {
+      z-index: 1;
       left: 50%;
       transform: translate(-50%, -50%);
       .listNum {
@@ -187,6 +212,7 @@
       }
     }
     .imgBox {
+      z-index: 1;
       position: absolute;
       bottom: -200px;
       left: 50%;
@@ -197,8 +223,8 @@
 }
 
 #mousePointer {
-  width: 80px;
-  height: 80px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   border: 1px solid #fff;
   position: fixed;
@@ -206,12 +232,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  &::before {
+  overflow: hidden;
+  &.click::before {
     content: "CLICK!";
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  video {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
