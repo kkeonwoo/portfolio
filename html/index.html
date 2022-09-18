@@ -193,6 +193,7 @@ function (          ) {
       //   navigationTooltips: ["ABOUT ME", "PORTFOLIO", "CONTACT"],
       //   showActiveTooltip: true,
       // });
+
       // header classToggle
 
       // swiper
@@ -364,6 +365,14 @@ function (          ) {
             imgMove.restart();
           },
         });
+      });
+      gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
+        cssRule: { width: "0%" },
+        duration: $(this).width() / 2000,
+        ease: "sine.in",
+        stagger: {
+          each: 0.2,
+        },
       });
     </script>
     <!-- //script -->

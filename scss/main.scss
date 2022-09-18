@@ -105,6 +105,15 @@
     flex-direction: column;
     justify-content: space-between;
     height: 150px;
+    strong {
+      position: relative;
+      &::before {
+        @include pseudo;
+        @include box(100%, 100%, #fff);
+        top: 0;
+        left: 0;
+      }
+    }
     .title {
       font-size: $font-medium;
       font-weight: 500;
