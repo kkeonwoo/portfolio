@@ -45,6 +45,11 @@
   position: relative;
 }
 
+.imgBox img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 #opening {
   text-align: center;
   height: 100vh;
@@ -78,6 +83,24 @@
   transform: translate(-50%, -50%);
   font-size: 24px;
 }
+#opening .txtBox::before, #opening .txtBox::after {
+  position: absolute;
+  display: block;
+  top: 50%;
+  font-size: 64px;
+  font-weight: 900;
+  transform: translateY(-50%);
+}
+#opening .txtBox::before {
+  opacity: 0;
+  content: "(";
+  left: 40%;
+}
+#opening .txtBox::after {
+  opacity: 0;
+  content: ")";
+  right: 40%;
+}
 #opening .txtBox span {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.5) 100%);
   background-clip: text;
@@ -96,6 +119,8 @@
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 10px;
+  position: relative;
+  display: block;
 }
 
 #mainVisual .txtBox {
@@ -138,7 +163,6 @@
 }
 #mainVisual .contents .imgBox img {
   margin: -50px;
-  object-fit: contain;
 }
 
 #aboutMe .inner .txtBox {
@@ -254,8 +278,8 @@
 }
 
 #mousePointer {
-  width: 30px;
-  height: 30px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
   border: 1px solid #fff;
   position: fixed;
@@ -265,17 +289,11 @@
   pointer-events: none;
   overflow: hidden;
 }
-#mousePointer.click::before {
+#mousePointer::before {
   content: "CLICK!";
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#mousePointer video {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
