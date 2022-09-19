@@ -2,6 +2,11 @@
 @import "mixin";
 @import "font";
 
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .txtBox {
   @include absCenter(false, true);
   letter-spacing: -1px;
@@ -56,9 +61,50 @@
       }
     }
   }
+  .scrollAni {
+    @include absCenter(true, true);
+    display: flex;
+    top: 90%;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    span {
+      &:nth-child(1) {
+        display: block;
+        width: 22px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid #fff;
+        margin-bottom: 10px;
+        position: relative;
+        &::before {
+          @include pseudo;
+          @include box(4px, 8px, #fff);
+          border-radius: 2px;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 20%;
+          animation: scrollAni 2s ease infinite forwards;
+        }
+      }
+    }
+    .arrowDown {
+      line-height: 0.5;
+      font-size: 24px;
+      animation: arrowDownAni 2s linear infinite forwards;
+      &:nth-child(2) {
+        animation-delay: 0.75s;
+      }
+      &:nth-child(3) {
+        animation-delay: 1.5s;
+      }
+    }
+  }
   .txtBox {
     @include absCenter(true, true);
     font-size: $font-medium - 4;
+    opacity: 0;
+    pointer-events: none;
     &::before,
     &::after {
       position: absolute;
@@ -272,5 +318,35 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes scrollAni {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+  10% {
+    top: 10%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes arrowDownAni {
+  0% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+  }
+  100% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
   }
 }

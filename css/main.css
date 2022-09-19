@@ -22,6 +22,11 @@
   font-family: "RecoletRegular";
   src: url("../font/RecoletaRegular.woff2") format("woff2");
 }
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .txtBox {
   position: absolute;
   top: 50%;
@@ -76,12 +81,63 @@
   transform: scale(1.1);
   border: 1px solid #fff;
 }
+#opening .scrollAni {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  top: 90%;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+}
+#opening .scrollAni span:nth-child(1) {
+  display: block;
+  width: 22px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  margin-bottom: 10px;
+  position: relative;
+}
+#opening .scrollAni span:nth-child(1)::before {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20%;
+  -webkit-animation: scrollAni 2s ease infinite forwards;
+          animation: scrollAni 2s ease infinite forwards;
+}
+#opening .scrollAni .arrowDown {
+  line-height: 0.5;
+  font-size: 24px;
+  -webkit-animation: arrowDownAni 2s linear infinite forwards;
+          animation: arrowDownAni 2s linear infinite forwards;
+}
+#opening .scrollAni .arrowDown:nth-child(2) {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+#opening .scrollAni .arrowDown:nth-child(3) {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
 #opening .txtBox {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
+  opacity: 0;
+  pointer-events: none;
 }
 #opening .txtBox::before, #opening .txtBox::after {
   position: absolute;
@@ -310,4 +366,62 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes scrollAni {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+  10% {
+    top: 10%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes scrollAni {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+  10% {
+    top: 10%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes arrowDownAni {
+  0% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
+@keyframes arrowDownAni {
+  0% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
 }
