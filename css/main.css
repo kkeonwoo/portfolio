@@ -150,12 +150,12 @@ body {
 #opening .txtBox::before {
   opacity: 0;
   content: "(";
-  left: 40%;
+  left: -10%;
 }
 #opening .txtBox::after {
   opacity: 0;
   content: ")";
-  right: 40%;
+  right: 60%;
 }
 #opening .txtBox span {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.5) 100%);

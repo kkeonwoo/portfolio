@@ -196,6 +196,7 @@ function (          ) {
     <script>
       const wt = $(window).scrollTop();
       const openingHt = $("#opening").offset().top;
+      const mainVisualHt = $("#mainVisual").offset().top;
       // //fullpage
       // $("#fullpage").fullpage({
       //   navigation: true,
@@ -242,12 +243,13 @@ function (          ) {
 
       // mouseScroll
       $("body").on("mousewheel", function (e) {
+        console.log("aaa");
         const deltaY = e.originalEvent.deltaY;
+        // opening scrollAni
         if (wt > 0 && deltaY > 0) {
-          gsap.to("#opening .scrollAni", { opacity: 0, duration: 0.25, ease: "linear" });
         } else if (wt === 0) {
-          gsap.to("#opening .scrollAni", { opacity: 1, duration: 0.25, ease: "linear" });
         }
+        // mainVisual blank gsap
       });
 
       // opening event
@@ -324,7 +326,6 @@ function (          ) {
           scrub: 1,
           markers: true,
           pin: true,
-
           onLeave: () => {
             gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
             $("#header").addClass("on");
@@ -336,7 +337,11 @@ function (          ) {
         },
       });
       openingTxtTL
-        .to("#opening .txtBox p", { opacity: 0, duration: 0.25, ease: "linear" })
+        .to("#opening .txtBox p", {
+          opacity: 0,
+          duration: 0.25,
+          ease: "linear",
+        })
         .addLabel("bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
@@ -385,14 +390,16 @@ function (          ) {
           },
         });
       });
-      gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
-        cssRule: { width: "0%" },
-        duration: $(this).width() / 2000,
-        ease: "sine.in",
-        stagger: {
-          each: 0.2,
-        },
-      });
+      if (wt >= mainVisualHt) {
+        gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
+          cssRule: { width: "0%" },
+          duration: $(this).width() / 2000,
+          ease: "sine.in",
+          stagger: {
+            each: 0.2,
+          },
+        });
+      }
     </script>
     <!-- //script -->
   </body>
