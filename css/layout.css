@@ -1,29 +1,5 @@
-@font-face {
-  font-family: "644Number";
-  src: url("../font/644RoomNumber.woff2") format("woff2");
-}
-@font-face {
-  font-family: "HelveticaMedium";
-  src: url("../font/HelveticaNowDisplayMedium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "HelveticaRegular";
-  src: url("../font/HelveticaNowDisplayRegular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NotoSansKR-Bold";
-  src: url("../font/NotoSansKR-Bold.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NotoSansKR-Medium";
-  src: url("../font/NotoSansKR-Medium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "RecoletRegular";
-  src: url("../font/RecoletaRegular.woff2") format("woff2");
-}
 body {
-  font-family: "Old Standard TT", "Noto Sans KR", "Literata", serif;
+  font-family: "WildernessTypeface-Regular", "Old Standard TT", "Noto Sans KR", "Literata", serif;
   background-color: #111;
   color: #fff;
 }

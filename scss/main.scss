@@ -1,13 +1,17 @@
 @import "vars";
 @import "mixin";
-@import "font";
+@font-face {
+  font-family: "WildernessTypeface-Regular";
+  src: url("../font/WildernessTypeface-Regular.ttf") format("ttf");
+}
 
 body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
-.txtBox {
+.txtBox,
+.titleBox {
   @include absCenter(false, true);
   letter-spacing: -1px;
   .title {
@@ -25,7 +29,6 @@ body {
 }
 
 .section {
-  border: 1px solid #fff;
   height: 100vh;
   position: relative;
 }
@@ -38,7 +41,6 @@ body {
 
 #opening {
   text-align: center;
-  height: 100vh;
   .rect {
     height: 100%;
     display: flex;
@@ -68,35 +70,37 @@ body {
     flex-direction: column;
     align-items: center;
     opacity: 0;
-    span {
-      &:nth-child(1) {
-        display: block;
-        width: 22px;
-        height: 40px;
-        border-radius: 20px;
-        border: 2px solid #fff;
-        margin-bottom: 10px;
-        position: relative;
-        &::before {
-          @include pseudo;
-          @include box(4px, 8px, #fff);
-          border-radius: 2px;
-          left: 50%;
-          transform: translateX(-50%);
-          top: 20%;
-          animation: scrollAni 2s ease infinite forwards;
-        }
+    .mouse {
+      display: block;
+      width: 22px;
+      height: 40px;
+      border-radius: 20px;
+      border: 2px solid #fff;
+      margin-bottom: 10px;
+      position: relative;
+      &::before {
+        @include pseudo;
+        @include box(4px, 8px, #fff);
+        border-radius: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20%;
+        animation: scrollAni 2s ease infinite forwards;
       }
     }
     .arrowDown {
-      line-height: 0.5;
-      font-size: 24px;
-      animation: arrowDownAni 2s linear infinite forwards;
-      &:nth-child(2) {
-        animation-delay: 0.75s;
-      }
-      &:nth-child(3) {
-        animation-delay: 1.5s;
+      display: flex;
+      flex-direction: column;
+      span {
+        line-height: 0.5;
+        font-size: 24px;
+        animation: arrowDownAni 2s linear infinite forwards;
+        &:nth-child(2) {
+          animation-delay: 0.75s;
+        }
+        &:nth-child(3) {
+          animation-delay: 1.5s;
+        }
       }
     }
   }
@@ -146,6 +150,24 @@ body {
 }
 
 #mainVisual {
+  .titleBox {
+    top: 20%;
+    .title {
+      position: relative;
+      display: inline-block;
+      &::before {
+        @include pseudo;
+        @include box(150px, 100px, transparent);
+        @include absCenter(true, true);
+        background: {
+          image: url("../images/main/aboutTitleBg.png");
+          size: contain;
+          repeat: no-repeat;
+          position: 50% 50%;
+        }
+      }
+    }
+  }
   .txtBox {
     display: flex;
     flex-direction: column;
@@ -188,56 +210,44 @@ body {
       @include absCenter(false, true);
       right: -300px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       img {
         margin: -50px;
+      }
+      .text {
+        height: 150px;
+        border-right: 5px solid #fff;
+        font-size: $font-extra-large;
+        font-family: "WildernessTypeface-Regular";
+        animation: cursorAni 1s ease-in-out infinite forwards;
+        @include absCenter(true, true);
       }
     }
   }
 }
 
 #aboutMe {
+  border: 1px solid #fff;
   .inner {
-    .txtBox {
+    .titleBox {
       top: 20%;
-      .title {
-        position: relative;
-        &::before {
-          @include pseudo;
-          @include box(150px, 100px, transparent);
-          @include absCenter(true, true);
-          background: {
-            image: url("../images/main/aboutTitleBg.png");
-            size: contain;
-            repeat: no-repeat;
-            position: 50% 50%;
-          }
-        }
-      }
     }
     .contents {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      .contentTitle {
-        display: flex;
-        font-size: $font-medium;
-        text-align: center;
-        line-height: 1.5;
-        > li {
-          display: flex;
-          align-items: center;
-          .contentsTxt {
-            margin-right: 100px;
-            p {
-              display: block;
-              margin-top: 20px;
-              font-size: 16px;
-              color: #999;
-            }
-          }
+      position: relative;
+      .swiper-wrapper {
+        width: 100%;
+        overflow: hidden;
+        .swiper-slide {
+          width: 100%;
         }
+      }
+      .pagination {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 99;
+        color: #fff;
       }
     }
   }
@@ -348,5 +358,14 @@ body {
   100% {
     opacity: 0;
     color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes cursorAni {
+  0% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #fff;
   }
 }

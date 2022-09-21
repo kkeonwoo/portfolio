@@ -1,39 +1,21 @@
 @font-face {
-  font-family: "644Number";
-  src: url("../font/644RoomNumber.woff2") format("woff2");
-}
-@font-face {
-  font-family: "HelveticaMedium";
-  src: url("../font/HelveticaNowDisplayMedium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "HelveticaRegular";
-  src: url("../font/HelveticaNowDisplayRegular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NotoSansKR-Bold";
-  src: url("../font/NotoSansKR-Bold.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NotoSansKR-Medium";
-  src: url("../font/NotoSansKR-Medium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "RecoletRegular";
-  src: url("../font/RecoletaRegular.woff2") format("woff2");
+  font-family: "WildernessTypeface-Regular";
+  src: url("../font/WildernessTypeface-Regular.ttf") format("ttf");
 }
 body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
-.txtBox {
+.txtBox,
+.titleBox {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   letter-spacing: -1px;
 }
-.txtBox .title strong {
+.txtBox .title strong,
+.titleBox .title strong {
   font-weight: 800;
   font-size: 36px;
 }
@@ -45,19 +27,16 @@ body {
 }
 
 .section {
-  border: 1px solid #fff;
   height: 100vh;
   position: relative;
 }
 
 .imgBox img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #opening {
   text-align: center;
-  height: 100vh;
 }
 #opening .rect {
   height: 100%;
@@ -92,7 +71,7 @@ body {
   align-items: center;
   opacity: 0;
 }
-#opening .scrollAni span:nth-child(1) {
+#opening .scrollAni .mouse {
   display: block;
   width: 22px;
   height: 40px;
@@ -101,7 +80,7 @@ body {
   margin-bottom: 10px;
   position: relative;
 }
-#opening .scrollAni span:nth-child(1)::before {
+#opening .scrollAni .mouse::before {
   display: block;
   position: absolute;
   content: "";
@@ -113,22 +92,22 @@ body {
   left: 50%;
   transform: translateX(-50%);
   top: 20%;
-  -webkit-animation: scrollAni 2s ease infinite forwards;
-          animation: scrollAni 2s ease infinite forwards;
+  animation: scrollAni 2s ease infinite forwards;
 }
 #opening .scrollAni .arrowDown {
+  display: flex;
+  flex-direction: column;
+}
+#opening .scrollAni .arrowDown span {
   line-height: 0.5;
   font-size: 24px;
-  -webkit-animation: arrowDownAni 2s linear infinite forwards;
-          animation: arrowDownAni 2s linear infinite forwards;
+  animation: arrowDownAni 2s linear infinite forwards;
 }
-#opening .scrollAni .arrowDown:nth-child(2) {
-  -webkit-animation-delay: 0.75s;
-          animation-delay: 0.75s;
+#opening .scrollAni .arrowDown span:nth-child(2) {
+  animation-delay: 0.75s;
 }
-#opening .scrollAni .arrowDown:nth-child(3) {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+#opening .scrollAni .arrowDown span:nth-child(3) {
+  animation-delay: 1.5s;
 }
 #opening .txtBox {
   position: absolute;
@@ -179,6 +158,30 @@ body {
   display: block;
 }
 
+#mainVisual .titleBox {
+  top: 20%;
+}
+#mainVisual .titleBox .title {
+  position: relative;
+  display: inline-block;
+}
+#mainVisual .titleBox .title::before {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 150px;
+  height: 100px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../images/main/aboutTitleBg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
 #mainVisual .txtBox {
   display: flex;
   flex-direction: column;
@@ -229,59 +232,46 @@ body {
   transform: translateY(-50%);
   right: -300px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 #mainVisual .contents .imgBox img {
   margin: -50px;
 }
-
-#aboutMe .inner .txtBox {
-  top: 20%;
-}
-#aboutMe .inner .txtBox .title {
-  position: relative;
-}
-#aboutMe .inner .txtBox .title::before {
-  display: block;
-  position: absolute;
-  content: "";
-  display: block;
-  width: 150px;
-  height: 100px;
-  background-color: transparent;
+#mainVisual .contents .imgBox .text {
+  height: 150px;
+  border-right: 5px solid #fff;
+  font-size: 64px;
+  font-family: "WildernessTypeface-Regular";
+  animation: cursorAni 1s ease-in-out infinite forwards;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("../images/main/aboutTitleBg.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+}
+
+#aboutMe {
+  border: 1px solid #fff;
+}
+#aboutMe .inner .titleBox {
+  top: 20%;
 }
 #aboutMe .inner .contents {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
-#aboutMe .inner .contents .contentTitle {
-  display: flex;
-  font-size: 28px;
-  text-align: center;
-  line-height: 1.5;
+#aboutMe .inner .contents .swiper-wrapper {
+  width: 100%;
+  overflow: hidden;
 }
-#aboutMe .inner .contents .contentTitle > li {
-  display: flex;
-  align-items: center;
+#aboutMe .inner .contents .swiper-wrapper .swiper-slide {
+  width: 100%;
 }
-#aboutMe .inner .contents .contentTitle > li .contentsTxt {
-  margin-right: 100px;
-}
-#aboutMe .inner .contents .contentTitle > li .contentsTxt p {
-  display: block;
-  margin-top: 20px;
-  font-size: 16px;
-  color: #999;
+#aboutMe .inner .contents .pagination {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  color: #fff;
 }
 
 #portfolio {
@@ -368,21 +358,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-@-webkit-keyframes scrollAni {
-  0% {
-    top: 5%;
-    opacity: 0;
-  }
-  10% {
-    top: 10%;
-    opacity: 1;
-  }
-  100% {
-    top: 50%;
-    opacity: 0;
-  }
-}
-
 @keyframes scrollAni {
   0% {
     top: 5%;
@@ -397,7 +372,7 @@ body {
     opacity: 0;
   }
 }
-@-webkit-keyframes arrowDownAni {
+@keyframes arrowDownAni {
   0% {
     opacity: 0;
     color: rgba(255, 255, 255, 0.2);
@@ -411,17 +386,11 @@ body {
     color: rgba(255, 255, 255, 0.2);
   }
 }
-@keyframes arrowDownAni {
+@keyframes cursorAni {
   0% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    opacity: 1;
-    color: rgb(255, 255, 255);
+    border-color: transparent;
   }
   100% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
   }
 }
