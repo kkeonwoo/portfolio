@@ -56,7 +56,7 @@
     <main id="main">
       <!-- opening -->
       <section id="opening">
-        <div class="rect"></div>
+        <!-- <div class="rect"></div> -->
         <div class="scrollAni">
           <span class="mouse"></span>
           <div class="arrowDown">
@@ -99,36 +99,36 @@
       </section>
       <!-- mainVisual -->
       <!-- aboutMe -->
-      <section id="aboutMe" class="section">
+      <section id="strength" class="section">
         <div class="inner">
           <div class="titleBox">
             <h2 class="title"><strong>STRENGTH</strong></h2>
           </div>
           <div class="contents">
-            <ul class="swiper-wrapper">
-              <li class="swiper-slide">
-                <span>90</span>
-              </li>
-              <li class="swiper-slide">
-                <span>100</span>
-              </li>
-              <li class="swiper-slide">
-                <span>70</span>
-              </li>
-              <li class="swiper-slide">
-                <span>70</span>
-              </li>
-              <li class="swiper-slide">
-                <span>70</span>
-              </li>
-              <li class="swiper-slide">
-                <span>70</span>
-              </li>
-              <li class="swiper-slide">
-                <span>70</span>
-              </li>
+            <div class="contentsBg">
+              <span class="func">function ( <strong></strong> )</span>
+              <span class="return">
+                { <br> return <br> }
+              </span>
+            </div>
+            <ul class="props">
+              <li><span>HTML</span></li>
+              <li><span>CSS/SASS</span></li>
+              <li><span>JS/JQUERY</span></li>
+              <li><span>NODE JS</span></li>
+              <li><span>AJAX</span></li>
+              <li><span>MONGO DB</span></li>
+              <li><span>REACT</span></li>
             </ul>
-            <div class="pagination"></div>
+            <ul class="returnNum">
+              <li><span>1</span></li>
+              <li><span>2</span></li>
+              <li><span>3</span></li>
+              <li><span>4</span></li>
+              <li><span>5</span></li>
+              <li><span>6</span></li>
+              <li><span>7</span></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -206,18 +206,6 @@
       const openingHt = $("#opening").offset().top;
       const mainVisualHt = $("#mainVisual").offset().top;
       // swiper
-      const aboutPaginationArray = ["HTML", "CSS/SASS", "JS/JQUERY", "AJAX", "NODE JS", "MONGO DB", "REACT"];
-      const aboutMeSwiper = new Swiper("#aboutMe .inner .contents", {
-        direction: "vertical",
-        pagination: {
-          el: "#aboutMe .pagination",
-          clickable: true,
-          type: "bullets",
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + aboutPaginationArray[index] + "</span>";
-          },
-        },
-      });
       const projectSwiper = new Swiper("#portfolio", {
         slidesPerView: 3,
         spaceBetween: 50,
@@ -253,113 +241,113 @@
       });
 
       // opening event
-      for (let i = 0; i < 312; i++) {
-        if (i < 312 / 3) {
-          $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
-          $(".rect").append(`<span class="hover row02"></span>`);
-        } else {
-          $(".rect").append(`<span class="hover row03"></span>`);
-        }
-      }
-      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
-      let clickCount = 0;
-      $(".rect span").on("click", function (e) {
-        clickCount++;
-        gsap.to($(this), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
-        if (clickCount >= 3) {
-          // 애니메이션 시작
-          const openingTL = gsap.timeline();
-          openingTL
-            .to(".rect span", {
-              backgroundColor: (idx, item) => {
-                return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
-              },
-              stagger: { each: 0.01, from: "random" },
-              onUpdate: () => {
-                $(".rect span").removeClass("hover");
-              },
-            })
-            .addLabel("rotate")
-            .to(
-              ".rect .row01",
-              {
-                rotationY: 180,
-                stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
-              },
-              "rotate"
-            )
-            .to(
-              ".rect .row03",
-              {
-                rotationY: 180,
-                stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
-              },
-              "rotate"
-            )
-            .to(".rect .row02", {
-              rotationY: 180,
-              stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
-            })
-            .to(".rect span", {
-              rotateY: -180,
-              backgroundColor: "#111",
-              stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
-              onComplete: () => {
-                const openingEndTL = gsap.timeline();
-                openingEndTL
-                  .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
-                  .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
-                  .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
-                  .to("body", { overflowY: "scroll" });
-              },
-            });
-        }
-      });
+      // for (let i = 0; i < 312; i++) {
+      //   if (i < 312 / 3) {
+      //     $(".rect").append(`<span class="hover row01"></span>`);
+      //   } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
+      //     $(".rect").append(`<span class="hover row02"></span>`);
+      //   } else {
+      //     $(".rect").append(`<span class="hover row03"></span>`);
+      //   }
+      // }
+      // const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      // let clickCount = 0;
+      // $(".rect span").on("click", function (e) {
+      //   clickCount++;
+      //   gsap.to($(this), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+      //   if (clickCount >= 3) {
+      //     // 애니메이션 시작
+      //     const openingTL = gsap.timeline();
+      //     openingTL
+      //       .to(".rect span", {
+      //         backgroundColor: (idx, item) => {
+      //           return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+      //         },
+      //         stagger: { each: 0.01, from: "random" },
+      //         onUpdate: () => {
+      //           $(".rect span").removeClass("hover");
+      //         },
+      //       })
+      //       .addLabel("rotate")
+      //       .to(
+      //         ".rect .row01",
+      //         {
+      //           rotationY: 180,
+      //           stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+      //         },
+      //         "rotate"
+      //       )
+      //       .to(
+      //         ".rect .row03",
+      //         {
+      //           rotationY: 180,
+      //           stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+      //         },
+      //         "rotate"
+      //       )
+      //       .to(".rect .row02", {
+      //         rotationY: 180,
+      //         stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+      //       })
+      //       .to(".rect span", {
+      //         rotateY: -180,
+      //         backgroundColor: "#111",
+      //         stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+      //         onComplete: () => {
+      //           const openingEndTL = gsap.timeline();
+      //           openingEndTL
+      //             .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
+      //             .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
+      //             .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
+      //             .to("body", { overflowY: "scroll" });
+      //         },
+      //       });
+      //   }
+      // });
 
       // openingTxt timeline
-      const openingTxtTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#opening",
-          start: "top top",
-          end: "bottom+=20% top",
-          scrub: 1,
-          markers: true,
-          pin: true,
-          onLeave: () => {
-            gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
-            $("#header").addClass("on");
-          },
-          onEnterBack: () => {
-            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
-            $("#header").removeClass("on");
-          },
-        },
-      });
-      openingTxtTL
-        .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
-        .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
-        .to("#opening .txtBox p", {
-          opacity: 0,
-          duration: 0.25,
-          ease: "linear",
-        })
-        .addLabel("bracket")
-        .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        .from("#opening .txtBox h2", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-          delay: 0.4,
-        })
-        .from("#opening .txtBox >span", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-        });
+      // const openingTxtTL = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: "#opening",
+      //     start: "top top",
+      //     end: "bottom+=20% top",
+      //     scrub: 1,
+      //     markers: true,
+      //     pin: true,
+      //     onLeave: () => {
+      //       gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
+      //       $("#header").addClass("on");
+      //     },
+      //     onEnterBack: () => {
+      //       gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
+      //       $("#header").removeClass("on");
+      //     },
+      //   },
+      // });
+      // openingTxtTL
+      //   .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
+      //   .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
+      //   .to("#opening .txtBox p", {
+      //     opacity: 0,
+      //     duration: 0.25,
+      //     ease: "linear",
+      //   })
+      //   .addLabel("bracket")
+      //   .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+      //   .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+      //   .from("#opening .txtBox h2", {
+      //     opacity: 0,
+      //     scale: 0.9,
+      //     duration: 0.8,
+      //     ease: "linear",
+      //     delay: 0.4,
+      //   })
+      //   .from("#opening .txtBox >span", {
+      //     opacity: 0,
+      //     scale: 0.9,
+      //     duration: 0.8,
+      //     ease: "linear",
+      //   });
 
       // mainVisual imgMove
       const imgMove = gsap.to("#mainVisual .imgBox img", {

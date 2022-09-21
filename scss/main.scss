@@ -7,7 +7,7 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 }
 
 .txtBox,
@@ -18,6 +18,22 @@ body {
     strong {
       font-weight: 800;
       font-size: $font-medium + 8;
+    }
+  }
+}
+
+.titleBox {
+  top: 20%;
+  .title {
+    position: relative;
+    &::before {
+      @include pseudo;
+      @include absCenter(true, true);
+      background: {
+        size: contain;
+        repeat: no-repeat;
+        position: 50% 50%;
+      }
     }
   }
 }
@@ -151,19 +167,12 @@ body {
 
 #mainVisual {
   .titleBox {
-    top: 20%;
     .title {
-      position: relative;
       display: inline-block;
       &::before {
-        @include pseudo;
         @include box(150px, 100px, transparent);
-        @include absCenter(true, true);
         background: {
           image: url("../images/main/aboutTitleBg.png");
-          size: contain;
-          repeat: no-repeat;
-          position: 50% 50%;
         }
       }
     }
@@ -227,28 +236,22 @@ body {
   }
 }
 
-#aboutMe {
-  border: 1px solid #fff;
+#strength {
   .inner {
+    display: flex;
+    align-items: center;
     .titleBox {
-      top: 20%;
+      .title {
+        &::before {
+          @include box(300px, 100px, transparent);
+          background: {
+            image: url("../images/main/strengthBg.png");
+          }
+        }
+      }
     }
     .contents {
       position: relative;
-      .swiper-wrapper {
-        width: 100%;
-        overflow: hidden;
-        .swiper-slide {
-          width: 100%;
-        }
-      }
-      .pagination {
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 99;
-        color: #fff;
-      }
     }
   }
 }
