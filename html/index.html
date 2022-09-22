@@ -56,7 +56,7 @@
     <main id="main">
       <!-- opening -->
       <section id="opening">
-        <!-- <div class="rect"></div> -->
+        <div class="rect"></div>
         <div class="scrollAni">
           <span class="mouse"></span>
           <div class="arrowDown">
@@ -92,7 +92,7 @@
                 <img src="../images/main/_Chevron_Left0000.png" alt="" />
                 <img src="../images/main/_Chevron_Right0000.png" alt="" />
               </div>
-              <!-- <div class="text"></div> -->
+              <div class="text"></div>
             </div>
           </div>
         </div>
@@ -101,33 +101,39 @@
       <!-- aboutMe -->
       <section id="strength" class="section">
         <div class="inner">
+          <div class="bg">
+            <div class="imgBox">
+              <img src="../images/main/_Curly_Bracket_Open0000.png" alt="">
+              <img src="../images/main/_Curly_Bracket_Close0000.png" alt="">
+            </div>
+          </div>
           <div class="titleBox">
             <h2 class="title"><strong>STRENGTH</strong></h2>
           </div>
           <div class="contents">
             <div class="contentsBg">
-              <span class="func">function ( <strong></strong> )</span>
+              <span class="func">function <em>mySkillsPercent</em> ( <strong></strong> )</span>
               <span class="return">
-                { <br> return <br> }
+                { <br> <em>return</em> <br> }
               </span>
             </div>
             <ul class="props">
               <li><span>HTML</span></li>
               <li><span>CSS/SASS</span></li>
-              <li><span>JS/JQUERY</span></li>
+              <!-- <li><span>JS/JQUERY</span></li>
               <li><span>NODE JS</span></li>
               <li><span>AJAX</span></li>
               <li><span>MONGO DB</span></li>
-              <li><span>REACT</span></li>
+              <li><span>REACT</span></li> -->
             </ul>
             <ul class="returnNum">
-              <li><span>1</span></li>
-              <li><span>2</span></li>
-              <li><span>3</span></li>
-              <li><span>4</span></li>
-              <li><span>5</span></li>
-              <li><span>6</span></li>
-              <li><span>7</span></li>
+              <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li>
+              <!-- <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li> -->
             </ul>
           </div>
         </div>
@@ -191,14 +197,45 @@
             </div>
           </li>
         </ul>
+        <div class="pagination">
+        </div>
+        <div class="btns">
+          <button class="btn prev material-icons">chevron_left</button>
+          <button class="btn next material-icons">chevron_right</button>
+        </div>
       </section>
-      <section id="contact" class="section"></section>
+      <section id="contact" class="section">
+        <div class="inner">
+          <div class="titleBox">
+            <h2 class="title"><strong>CONTACT</strong></h2>
+          </div>
+          <div class="txtBox">
+            <address>
+              <dl>
+                <dt>PHONE</dt>
+                <dd>
+                  <a href="tel:010-9502-9924">010-9502-9924</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>EMAIL</dt>
+                <dd>
+                  <a href="mailto:kunwoo1324@naver.com">kunwoo1324@naver.com</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt>Git-hub</dt>
+                <dd>
+                  <a href="https://github.com/kkeonwoo">https://github.com/kkeonwoo</a>
+                </dd>
+              </dl>
+            </address>
+          </div>
+        </div>
+      </section>
       <!-- //opening -->
     </main>
     <!-- //main -->
-    <!-- footer -->
-    <footer id="footer"></footer>
-    <!-- //footer -->
     <div id="mousePointer"></div>
     <!-- script -->
     <script>
@@ -209,6 +246,14 @@
       const projectSwiper = new Swiper("#portfolio", {
         slidesPerView: 3,
         spaceBetween: 50,
+        pagination:{
+          el:"#portfolio .pagination",
+          type: "progressbar",
+        },
+        navigation: {
+          nextEl: "#portfolio .btns .next",
+          prevEl: "#portfolio .btns .prev",
+        },
       });
 
       // gnb event
@@ -240,124 +285,132 @@
         gsap.to("#mousePointer", { left: `${posX}`, top: `${posY}`, ease: "power2", duration: 0.3 });
       });
 
+      //mousePointer transform
+
       // opening event
-      // for (let i = 0; i < 312; i++) {
-      //   if (i < 312 / 3) {
-      //     $(".rect").append(`<span class="hover row01"></span>`);
-      //   } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
-      //     $(".rect").append(`<span class="hover row02"></span>`);
-      //   } else {
-      //     $(".rect").append(`<span class="hover row03"></span>`);
-      //   }
-      // }
-      // const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
-      // let clickCount = 0;
-      // $(".rect span").on("click", function (e) {
-      //   clickCount++;
-      //   gsap.to($(this), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
-      //   if (clickCount >= 3) {
-      //     // 애니메이션 시작
-      //     const openingTL = gsap.timeline();
-      //     openingTL
-      //       .to(".rect span", {
-      //         backgroundColor: (idx, item) => {
-      //           return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
-      //         },
-      //         stagger: { each: 0.01, from: "random" },
-      //         onUpdate: () => {
-      //           $(".rect span").removeClass("hover");
-      //         },
-      //       })
-      //       .addLabel("rotate")
-      //       .to(
-      //         ".rect .row01",
-      //         {
-      //           rotationY: 180,
-      //           stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
-      //         },
-      //         "rotate"
-      //       )
-      //       .to(
-      //         ".rect .row03",
-      //         {
-      //           rotationY: 180,
-      //           stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
-      //         },
-      //         "rotate"
-      //       )
-      //       .to(".rect .row02", {
-      //         rotationY: 180,
-      //         stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
-      //       })
-      //       .to(".rect span", {
-      //         rotateY: -180,
-      //         backgroundColor: "#111",
-      //         stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
-      //         onComplete: () => {
-      //           const openingEndTL = gsap.timeline();
-      //           openingEndTL
-      //             .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
-      //             .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
-      //             .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
-      //             .to("body", { overflowY: "scroll" });
-      //         },
-      //       });
-      //   }
-      // });
+      for (let i = 0; i < 312; i++) {
+        if (i < 312 / 3) {
+          $(".rect").append(`<span class="hover row01"></span>`);
+        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
+          $(".rect").append(`<span class="hover row02"></span>`);
+        } else {
+          $(".rect").append(`<span class="hover row03"></span>`);
+        }
+      }
+      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      let clickCount = 0;
+      $(".rect span").on("click", function (e) {
+        if($(e.target).hasClass("clicked")){
+          console.log("false");
+        } else {
+          clickCount++
+          $(e.target).addClass("clicked")
+          gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+          if (clickCount >= 3) {
+            // 애니메이션 시작
+            const openingTL = gsap.timeline();
+            openingTL
+              .to(".rect span", {
+                backgroundColor: (idx, item) => {
+                  return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+                },
+                stagger: { each: 0.01, from: "random" },
+                onUpdate: () => {
+                  $(".rect span").removeClass("hover");
+                },
+              })
+              .addLabel("rotate")
+              .to(
+                ".rect .row01",
+                {
+                  rotationY: 180,
+                  stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+                },
+                "rotate"
+              )
+              .to(
+                ".rect .row03",
+                {
+                  rotationY: 180,
+                  stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+                },
+                "rotate"
+              )
+              .to(".rect .row02", {
+                rotationY: 180,
+                stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+              })
+              .to(".rect span", {
+                rotateY: -180,
+                backgroundColor: "#111",
+                stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+                onComplete: () => {
+                  const openingEndTL = gsap.timeline();
+                  openingEndTL
+                    .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
+                    .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
+                    .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
+                    .to("body", { overflowY: "scroll" });
+                },
+              });
+          }
+        }
+      });
 
       // openingTxt timeline
-      // const openingTxtTL = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: "#opening",
-      //     start: "top top",
-      //     end: "bottom+=20% top",
-      //     scrub: 1,
-      //     markers: true,
-      //     pin: true,
-      //     onLeave: () => {
-      //       gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
-      //       $("#header").addClass("on");
-      //     },
-      //     onEnterBack: () => {
-      //       gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
-      //       $("#header").removeClass("on");
-      //     },
-      //   },
-      // });
-      // openingTxtTL
-      //   .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
-      //   .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
-      //   .to("#opening .txtBox p", {
-      //     opacity: 0,
-      //     duration: 0.25,
-      //     ease: "linear",
-      //   })
-      //   .addLabel("bracket")
-      //   .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-      //   .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-      //   .from("#opening .txtBox h2", {
-      //     opacity: 0,
-      //     scale: 0.9,
-      //     duration: 0.8,
-      //     ease: "linear",
-      //     delay: 0.4,
-      //   })
-      //   .from("#opening .txtBox >span", {
-      //     opacity: 0,
-      //     scale: 0.9,
-      //     duration: 0.8,
-      //     ease: "linear",
-      //   });
+      const openingTxtTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#opening",
+          start: "top top",
+          end: "+=110%",
+          pinSpacing: false,
+          scrub: 1,
+          markers: true,
+          pin: true,
+          onLeave: () => {
+            gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
+            $("#header").addClass("on");
+          },
+          onEnterBack: () => {
+            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
+            $("#header").removeClass("on");
+          },
+        },
+      });
+      openingTxtTL
+        .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
+        .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
+        .to("#opening .txtBox p", {
+          opacity: 0,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .addLabel("bracket")
+        .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        .from("#opening .txtBox h2", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "linear",
+          delay: 0.4,
+        })
+        .from("#opening .txtBox >span", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "linear",
+        })
 
       // mainVisual imgMove
       const imgMove = gsap.to("#mainVisual .imgBox img", {
-        y: Math.floor(Math.random() * (80 - 50) + 50),
+        y: Math.round(Math.random() * (100 - 50) - 50),
         ease: "back.inOut",
         duration: Math.random() * (4 - 2) + 2,
         yoyo: true,
         yoyoEase: "linear",
         repeat: -1,
-        stagger: { each: Math.floor(Math.random() * (2 - 1) + 1) },
+        stagger: { each: Math.round(Math.random() * (2 - 1) + 1) },
       });
       $("#mainVisual .imgBox").on("mouseenter", function () {
         const mainVisualImgTL = gsap.timeline();
@@ -370,7 +423,7 @@
             imgMove.pause();
           },
         })
-        // .to("#mainVisual .text",{text:"Lee KeonWoo",duration:4})
+        // .to("#mainVisual .text",{opacity:1,text:"Lee KeonWoo",duration:4})
       });
       $("#mainVisual .imgBox").on("mouseleave", function () {
         imgMove.restart();
@@ -382,15 +435,182 @@
             imgMove.restart();
           },
         });
+        // gsap.to("#mainVisual .text",{opacity:0,duration:0.25})
       });
-      gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
-        cssRule: { width: "0%" },
-        duration: $(this).width() / 2000,
-        ease: "sine.in",
-        stagger: {
-          each: 0.2,
-        },
-      });
+      // gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
+      //   cssRule: { width: "0%" },
+      //   duration: $(this).width() / 2000,
+      //   ease: "sine.in",
+      //   stagger: {
+      //     each: 0.2,
+      //   },
+      // });
+
+      // mainVisual Timeline
+      const mainVisualTL = gsap.timeline({
+        scrollTrigger:{
+          trigger:"#mainVisual",
+          start:"top top",
+          end:"bottom top",
+          pin:true,
+          scrub:1,
+          markers:true
+        }
+      })
+      mainVisualTL.from("#mainVisual .titleBox .title",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:0.25,
+        delay:1
+      })
+      .from("#mainVisual .txtBox .title",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:0.25,
+      })
+      .from("#mainVisual .txtBox .desc",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:0.25
+      })
+      .from("#mainVisual .contents",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:0.25,
+      })
+      .to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
+            cssRule: { scaleX: 0, transformOrigin:"100% 50%" },
+            duration: $(this).width() / 2000,
+            ease: "sine.in",
+            delay:0.2,
+            stagger: {
+              each: 0.2,
+            },
+          })
+      .from("#mainVisual",{duration:1})
+          
+
+      // strength count
+     // const mySkill = [
+        const html ={num:100};
+        const css = {num:90};
+        // {js:80},
+        // {node:70},
+        // {ajax:70},
+        // {mongo:75},
+        // {react:65}
+      //]
+// console.log(mySkill[0]);
+// console.log(mySkill[1]);
+      // strength Timeline
+      const strengthTL = gsap.timeline({
+        scrollTrigger:{
+          trigger:"#strength",
+          start:"top top",
+          end:"bottom top",
+          pin:true,
+          scrub:1,
+          markers:true
+        }
+      })
+      strengthTL.from("#strength .bg",{
+        width:"0%",
+        opacity:0,
+        duration:1,
+        ease:"sine.out"
+      })
+      .from("#strength .titleBox",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:0.3
+      })
+      .from("#strength .contents",{
+        opacity:0,
+        ease:"power2",
+        duration:0.3,
+        delay:0.2
+      })
+      .addLabel("func")
+      .from("#strength .props li:nth-child(1)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(html,{
+              num:0,
+              // css:0,
+              // js:0,
+              // node:0,
+              // ajax:0,
+              // mongo:0,
+              // react:0,
+              duration:5,
+              onUpdate:function(){
+                //console.log(mySkill[0].html);
+                $("#strength .returnNum li:nth-child(1) span").text(Math.round(html.num))
+                // $("#strength .returnNum li:nth-child(2) span").text(Math.round(mySkill.css))
+                // $("#strength .returnNum li:nth-child(3) span").text(Math.round(mySkill.js))
+                // $("#strength .returnNum li:nth-child(4) span").text(Math.round(mySkill.node))
+                // $("#strength .returnNum li:nth-child(5) span").text(Math.round(mySkill.ajax))
+                // $("#strength .returnNum li:nth-child(6) span").text(Math.round(mySkill.mongo))
+                // $("#strength .returnNum li:nth-child(7) span").text(Math.round(mySkill.react))
+            }})
+      .from("#strength .props li:nth-child(2)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+        stagger:{
+          onComplete:()=>{
+            // gsap.to("#strength .props li",{
+            //   opacity:0,
+            //   y:-100,
+            //   ease:"power2",
+            // })
+          },
+        }
+      })
+      .from(css,{
+              // html:0,
+              num:0,
+              // js:0,
+              // node:0,
+              // ajax:0,
+              // mongo:0,
+              // react:0,
+              duration:5,
+              onUpdate:function(){
+                //console.log(mySkill[1].css);
+                // $("#strength .returnNum li:nth-child(1) span").text(Math.round(mySkill.html))
+                $("#strength .returnNum li:nth-child(2) span").text(Math.round(css.num))
+                // $("#strength .returnNum li:nth-child(3) span").text(Math.round(mySkill.js))
+                // $("#strength .returnNum li:nth-child(4) span").text(Math.round(mySkill.node))
+                // $("#strength .returnNum li:nth-child(5) span").text(Math.round(mySkill.ajax))
+                // $("#strength .returnNum li:nth-child(6) span").text(Math.round(mySkill.mongo))
+                // $("#strength .returnNum li:nth-child(7) span").text(Math.round(mySkill.react))
+            }})
+      // .from("#strength .returnNum li",{
+      //   y:100,
+      //   opacity:0,
+      //   ease:"power2",
+      //   duration:0.25,
+      //   stagger:{
+      //     each:1,
+      //     // onComplete:()=>{
+      //     //   gsap.to("#strength .returnNum li",{
+      //     //     opacity:0,
+      //     //     y:-100,
+      //     //     ease:"power2",
+      //     //   })
+      //     // },
+      //   }
+      // },"func")
     </script>
     <!-- //script -->
   </body>
