@@ -120,20 +120,20 @@
             <ul class="props">
               <li><span>HTML</span></li>
               <li><span>CSS/SASS</span></li>
-              <!-- <li><span>JS/JQUERY</span></li>
+              <li><span>JS/JQUERY</span></li>
               <li><span>NODE JS</span></li>
               <li><span>AJAX</span></li>
               <li><span>MONGO DB</span></li>
-              <li><span>REACT</span></li> -->
+              <li><span>REACT</span></li>
             </ul>
             <ul class="returnNum">
               <li><span></span> + "%"</li>
               <li><span></span> + "%"</li>
-              <!-- <li><span></span> + "%"</li>
               <li><span></span> + "%"</li>
               <li><span></span> + "%"</li>
               <li><span></span> + "%"</li>
-              <li><span></span> + "%"</li> -->
+              <li><span></span> + "%"</li>
+              <li><span></span> + "%"</li>
             </ul>
           </div>
         </div>
@@ -454,7 +454,8 @@
           end:"bottom top",
           pin:true,
           scrub:1,
-          markers:true
+          markers:true,
+          toggleActions: "restart pause resume pause",
         }
       })
       mainVisualTL.from("#mainVisual .titleBox .title",{
@@ -492,20 +493,35 @@
             },
           })
       .from("#mainVisual",{duration:1})
-          
+      .to("#mainVisual .titleBox",{
+        opacity:0,
+        x:-200,
+        duration:1,
+        ease:"back.in"
+      })
+      .addLabel("endMain")
+      .to("#mainVisual .txtBox",{
+        opacity:0,
+        x:-200,
+        duration:1,
+        ease:"back.in"
+      },"endMain")
+      .to("#mainVisual .contents",{
+        opacity:0,
+        x:200,
+        duration:1,
+        ease:"back.in"
+      },"endMain")
 
       // strength count
-     // const mySkill = [
         const html ={num:100};
-        const css = {num:90};
-        // {js:80},
-        // {node:70},
-        // {ajax:70},
-        // {mongo:75},
-        // {react:65}
-      //]
-// console.log(mySkill[0]);
-// console.log(mySkill[1]);
+        const css = {num:100};
+        const js = {num:80};
+        const node = {num:70};
+        const ajax = {num:70};
+        const mongo = {num:75};
+        const react = {num:65};
+
       // strength Timeline
       const strengthTL = gsap.timeline({
         scrollTrigger:{
@@ -514,7 +530,34 @@
           end:"bottom top",
           pin:true,
           scrub:1,
-          markers:true
+          markers:true,
+          toggleActions: "restart pause resume pause",
+          onLeave:()=>{
+            gsap.to("#strength .titleBox",{
+              y:100,
+              opacity:0,
+              ease:"back.in",
+              duration:0.3
+            })
+            gsap.to("#strength .contents",{
+              opacity:0,
+              width:"0%",
+              duration:0.3,
+              ease:"linear"
+            })
+            gsap.to("#strength .bg",{
+              width:"0%",
+              opacity:0,
+              duration:1,
+              ease:"back.in"
+            })
+          },
+          onEnterBack:()=>{
+            gsap.to("#strength .contents",{
+              width:"auto",
+              duration:0.25
+            })
+          }
         }
       })
       strengthTL.from("#strength .bg",{
@@ -535,7 +578,6 @@
         duration:0.3,
         delay:0.2
       })
-      .addLabel("func")
       .from("#strength .props li:nth-child(1)",{
         y:100,
         opacity:0,
@@ -543,74 +585,203 @@
         duration:1,
       })
       .from(html,{
-              num:0,
-              // css:0,
-              // js:0,
-              // node:0,
-              // ajax:0,
-              // mongo:0,
-              // react:0,
-              duration:5,
-              onUpdate:function(){
-                //console.log(mySkill[0].html);
-                $("#strength .returnNum li:nth-child(1) span").text(Math.round(html.num))
-                // $("#strength .returnNum li:nth-child(2) span").text(Math.round(mySkill.css))
-                // $("#strength .returnNum li:nth-child(3) span").text(Math.round(mySkill.js))
-                // $("#strength .returnNum li:nth-child(4) span").text(Math.round(mySkill.node))
-                // $("#strength .returnNum li:nth-child(5) span").text(Math.round(mySkill.ajax))
-                // $("#strength .returnNum li:nth-child(6) span").text(Math.round(mySkill.mongo))
-                // $("#strength .returnNum li:nth-child(7) span").text(Math.round(mySkill.react))
-            }})
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(1) span").text(Math.round(html.num))
+        },
+      })
+      .to("#strength .props li:nth-child(1)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(1) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
       .from("#strength .props li:nth-child(2)",{
         y:100,
         opacity:0,
         ease:"power2",
         duration:1,
-        stagger:{
-          onComplete:()=>{
-            // gsap.to("#strength .props li",{
-            //   opacity:0,
-            //   y:-100,
-            //   ease:"power2",
-            // })
-          },
-        }
       })
       .from(css,{
-              // html:0,
-              num:0,
-              // js:0,
-              // node:0,
-              // ajax:0,
-              // mongo:0,
-              // react:0,
-              duration:5,
-              onUpdate:function(){
-                //console.log(mySkill[1].css);
-                // $("#strength .returnNum li:nth-child(1) span").text(Math.round(mySkill.html))
-                $("#strength .returnNum li:nth-child(2) span").text(Math.round(css.num))
-                // $("#strength .returnNum li:nth-child(3) span").text(Math.round(mySkill.js))
-                // $("#strength .returnNum li:nth-child(4) span").text(Math.round(mySkill.node))
-                // $("#strength .returnNum li:nth-child(5) span").text(Math.round(mySkill.ajax))
-                // $("#strength .returnNum li:nth-child(6) span").text(Math.round(mySkill.mongo))
-                // $("#strength .returnNum li:nth-child(7) span").text(Math.round(mySkill.react))
-            }})
-      // .from("#strength .returnNum li",{
-      //   y:100,
-      //   opacity:0,
-      //   ease:"power2",
-      //   duration:0.25,
-      //   stagger:{
-      //     each:1,
-      //     // onComplete:()=>{
-      //     //   gsap.to("#strength .returnNum li",{
-      //     //     opacity:0,
-      //     //     y:-100,
-      //     //     ease:"power2",
-      //     //   })
-      //     // },
-      //   }
-      // },"func")
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(2) span").text(Math.round(css.num))
+        },
+      })
+      .to("#strength .props li:nth-child(2)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(2) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .from("#strength .props li:nth-child(3)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(js,{
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(3) span").text(Math.round(js.num))
+        },
+      })
+      .to("#strength .props li:nth-child(3)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(3) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .from("#strength .props li:nth-child(4)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(node,{
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(4) span").text(Math.round(node.num))
+        },
+      })
+      .to("#strength .props li:nth-child(4)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(4) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .from("#strength .props li:nth-child(5)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(ajax,{
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(5) span").text(Math.round(ajax.num))
+        },
+      })
+      .to("#strength .props li:nth-child(5)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(5) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .from("#strength .props li:nth-child(6)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(mongo,{
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(6) span").text(Math.round(mongo.num))
+        },
+      })
+      .to("#strength .props li:nth-child(6)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(6) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .from("#strength .props li:nth-child(7)",{
+        y:100,
+        opacity:0,
+        ease:"power2",
+        duration:1,
+      })
+      .from(react,{
+        num:0,
+        duration:5,
+        onUpdate:function(){
+          $("#strength .returnNum li:nth-child(7) span").text(Math.round(react.num))
+        },
+      })
+      .to("#strength .props li:nth-child(7)",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      .to("#strength .returnNum li:nth-child(7) span",{
+        opacity:0,
+        y:-100,
+        duration:0.25,
+        delay:1,
+        ease:"linear"
+      })
+      
+      // portfolio Timeline
+      const portfolioTL = gsap.timeline({
+        scrollTrigger:{
+          trigger:"#portfolio",
+          start:"top top",
+          end:"bottom top",
+          pin:true,
+          scrub:1,
+        }
+      })
+      portfolioTL.from("#portfolio",{
+        opacity:0,
+        duration:0.25
+      })
     </script>
     <!-- //script -->
   </body>

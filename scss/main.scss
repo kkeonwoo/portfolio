@@ -7,7 +7,7 @@
 
 body {
   overflow-x: hidden;
-  // overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .txtBox,
@@ -239,7 +239,6 @@ body {
 }
 
 #strength {
-  border: 1px solid #fff;
   .inner {
     display: flex;
     align-items: center;

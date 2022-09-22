@@ -4,6 +4,7 @@
 }
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .txtBox,
@@ -256,9 +257,6 @@ body {
   animation: cursorAni 1s ease-in-out infinite forwards;
 }
 
-#strength {
-  border: 1px solid #fff;
-}
 #strength .inner {
   display: flex;
   align-items: center;
