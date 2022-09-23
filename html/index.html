@@ -224,7 +224,7 @@
                 </dd>
               </dl>
               <dl>
-                <dt>Git-hub</dt>
+                <dt>GIT-HUB</dt>
                 <dd>
                   <a href="https://github.com/kkeonwoo">https://github.com/kkeonwoo</a>
                 </dd>
@@ -254,6 +254,9 @@
           nextEl: "#portfolio .btns .next",
           prevEl: "#portfolio .btns .prev",
         },
+        mousewheel:{
+          releaseOnEdges:true
+        }
       });
 
       // gnb event
@@ -288,74 +291,74 @@
       //mousePointer transform
 
       // opening event
-      for (let i = 0; i < 312; i++) {
-        if (i < 312 / 3) {
-          $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
-          $(".rect").append(`<span class="hover row02"></span>`);
-        } else {
-          $(".rect").append(`<span class="hover row03"></span>`);
-        }
-      }
-      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
-      let clickCount = 0;
-      $(".rect span").on("click", function (e) {
-        if($(e.target).hasClass("clicked")){
-          console.log("false");
-        } else {
-          clickCount++
-          $(e.target).addClass("clicked")
-          gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
-          if (clickCount >= 3) {
-            // 애니메이션 시작
-            const openingTL = gsap.timeline();
-            openingTL
-              .to(".rect span", {
-                backgroundColor: (idx, item) => {
-                  return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
-                },
-                stagger: { each: 0.01, from: "random" },
-                onUpdate: () => {
-                  $(".rect span").removeClass("hover");
-                },
-              })
-              .addLabel("rotate")
-              .to(
-                ".rect .row01",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(
-                ".rect .row03",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(".rect .row02", {
-                rotationY: 180,
-                stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
-              })
-              .to(".rect span", {
-                rotateY: -180,
-                backgroundColor: "#111",
-                stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
-                onComplete: () => {
-                  const openingEndTL = gsap.timeline();
-                  openingEndTL
-                    .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
-                    .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("body", { overflowY: "scroll" });
-                },
-              });
-          }
-        }
-      });
+      // for (let i = 0; i < 312; i++) {
+      //   if (i < 312 / 3) {
+      //     $(".rect").append(`<span class="hover row01"></span>`);
+      //   } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
+      //     $(".rect").append(`<span class="hover row02"></span>`);
+      //   } else {
+      //     $(".rect").append(`<span class="hover row03"></span>`);
+      //   }
+      // }
+      // const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      // let clickCount = 0;
+      // $(".rect span").on("click", function (e) {
+      //   if($(e.target).hasClass("clicked")){
+      //     console.log("false");
+      //   } else {
+      //     clickCount++
+      //     $(e.target).addClass("clicked")
+      //     gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+      //     if (clickCount >= 3) {
+      //       // 애니메이션 시작
+      //       const openingTL = gsap.timeline();
+      //       openingTL
+      //         .to(".rect span", {
+      //           backgroundColor: (idx, item) => {
+      //             return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+      //           },
+      //           stagger: { each: 0.01, from: "random" },
+      //           onUpdate: () => {
+      //             $(".rect span").removeClass("hover");
+      //           },
+      //         })
+      //         .addLabel("rotate")
+      //         .to(
+      //           ".rect .row01",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(
+      //           ".rect .row03",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(".rect .row02", {
+      //           rotationY: 180,
+      //           stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+      //         })
+      //         .to(".rect span", {
+      //           rotateY: -180,
+      //           backgroundColor: "#111",
+      //           stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+      //           onComplete: () => {
+      //             const openingEndTL = gsap.timeline();
+      //             openingEndTL
+      //               .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
+      //               .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("body", { overflowY: "scroll" });
+      //           },
+      //         });
+      //     }
+      //   }
+      // });
 
       // openingTxt timeline
       const openingTxtTL = gsap.timeline({
@@ -386,8 +389,8 @@
           ease: "linear",
         })
         .addLabel("bracket")
-        .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        // .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        // .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
         .from("#opening .txtBox h2", {
           opacity: 0,
           scale: 0.9,
@@ -437,14 +440,6 @@
         });
         // gsap.to("#mainVisual .text",{opacity:0,duration:0.25})
       });
-      // gsap.to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
-      //   cssRule: { width: "0%" },
-      //   duration: $(this).width() / 2000,
-      //   ease: "sine.in",
-      //   stagger: {
-      //     each: 0.2,
-      //   },
-      // });
 
       // mainVisual Timeline
       const mainVisualTL = gsap.timeline({
@@ -531,18 +526,17 @@
           pin:true,
           scrub:1,
           markers:true,
-          toggleActions: "restart pause resume pause",
           onLeave:()=>{
             gsap.to("#strength .titleBox",{
               y:100,
               opacity:0,
               ease:"back.in",
-              duration:0.3
+              duration:0.5
             })
             gsap.to("#strength .contents",{
               opacity:0,
               width:"0%",
-              duration:0.3,
+              duration:0.5,
               ease:"linear"
             })
             gsap.to("#strength .bg",{
@@ -553,9 +547,20 @@
             })
           },
           onEnterBack:()=>{
+            gsap.to("#strength .titleBox",{
+              y:0,
+              opacity:1,
+              duration:0.5
+            })
             gsap.to("#strength .contents",{
               width:"auto",
-              duration:0.25
+              opacity:1,
+              duration:1
+            })
+            gsap.to("#strength .bg",{
+              width:"100%",
+              opacity:1,
+              duration:1
             })
           }
         }
@@ -602,7 +607,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(2)",{
@@ -629,7 +633,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(3)",{
@@ -656,7 +659,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(4)",{
@@ -683,7 +685,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(5)",{
@@ -710,7 +711,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(6)",{
@@ -737,7 +737,6 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
       .from("#strength .props li:nth-child(7)",{
@@ -764,9 +763,9 @@
         opacity:0,
         y:-100,
         duration:0.25,
-        delay:1,
         ease:"linear"
       })
+      
       
       // portfolio Timeline
       const portfolioTL = gsap.timeline({
@@ -774,6 +773,7 @@
           trigger:"#portfolio",
           start:"top top",
           end:"bottom top",
+          toggleActions: "restart pause resume pause",
           pin:true,
           scrub:1,
         }
@@ -781,6 +781,46 @@
       portfolioTL.from("#portfolio",{
         opacity:0,
         duration:0.25
+      })
+
+      // contact Timeline
+      const contactTL = gsap.timeline({
+        scrollTrigger:{
+          trigger:"#contact",
+          start:"top-=50% top",
+          end:"top top",
+          scrub:1,
+          markers:true
+        }
+      })
+      contactTL.from("#contact .titleBox",{
+        opacity:0,
+        y:100,
+        duration:0.25
+      })
+      .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(1)::before"),{
+        cssRule:{
+          marginLeft:1000,
+          opacity:0
+        },
+        duration:5,
+        ease:"ease.inOut",
+      })
+      .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::before"),{
+        cssRule:{
+          marginLeft:1000,
+          opacity:0
+        },
+        duration:5,
+        ease:"ease.inOut",
+      })
+      .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::before"),{
+        cssRule:{
+          marginLeft:1000,
+          opacity:0
+        },
+        duration:5,
+        ease:"ease.inOut",
       })
     </script>
     <!-- //script -->

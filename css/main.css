@@ -4,7 +4,6 @@
 }
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .txtBox,
@@ -51,7 +50,8 @@ body {
 }
 
 .imgBox img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #opening {
@@ -112,7 +112,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   top: 20%;
-  animation: scrollAni 2s ease infinite forwards;
+  -webkit-animation: scrollAni 2s ease infinite forwards;
+          animation: scrollAni 2s ease infinite forwards;
 }
 #opening .scrollAni .arrowDown {
   display: flex;
@@ -121,13 +122,16 @@ body {
 #opening .scrollAni .arrowDown span {
   line-height: 0.5;
   font-size: 24px;
-  animation: arrowDownAni 2s linear infinite forwards;
+  -webkit-animation: arrowDownAni 2s linear infinite forwards;
+          animation: arrowDownAni 2s linear infinite forwards;
 }
 #opening .scrollAni .arrowDown span:nth-child(2) {
-  animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
 }
 #opening .scrollAni .arrowDown span:nth-child(3) {
-  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 #opening .txtBox {
   position: absolute;
@@ -254,7 +258,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-right: 5px solid #fff;
-  animation: cursorAni 1s ease-in-out infinite forwards;
+  -webkit-animation: cursorAni 1s ease-in-out infinite forwards;
+          animation: cursorAni 1s ease-in-out infinite forwards;
 }
 
 #strength .inner {
@@ -267,7 +272,8 @@ body {
   left: 50%;
   top: 53%;
   transform: translate(-50%, -50%);
-  animation: bracketAni 10s ease infinite backwards;
+  -webkit-animation: bracketAni 10s ease infinite backwards;
+          animation: bracketAni 10s ease infinite backwards;
 }
 #strength .inner .bg .imgBox {
   width: 100%;
@@ -342,12 +348,13 @@ body {
 #portfolio {
   overflow: hidden;
   position: relative;
+  background-color: #000;
 }
-#portfolio .swiper-slide {
+#portfolio .swiper-wrapper .swiper-slide {
   text-align: center;
   position: relative;
 }
-#portfolio .swiper-slide::before {
+#portfolio .swiper-wrapper .swiper-slide::before {
   display: block;
   position: absolute;
   content: "";
@@ -359,7 +366,7 @@ body {
   left: 0;
   z-index: 1;
 }
-#portfolio .swiper-slide::after {
+#portfolio .swiper-wrapper .swiper-slide::after {
   display: block;
   position: absolute;
   content: "";
@@ -375,26 +382,26 @@ body {
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
-#portfolio .swiper-slide:hover .imgBox {
+#portfolio .swiper-wrapper .swiper-slide:hover .imgBox {
   bottom: 20px;
 }
-#portfolio .swiper-slide:hover::after {
+#portfolio .swiper-wrapper .swiper-slide:hover::after {
   opacity: 1;
 }
-#portfolio .swiper-slide .txtBox {
+#portfolio .swiper-wrapper .swiper-slide .txtBox {
   z-index: 1;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#portfolio .swiper-slide .txtBox .listNum {
+#portfolio .swiper-wrapper .swiper-slide .txtBox .listNum {
   font-size: 42px;
 }
-#portfolio .swiper-slide .txtBox .title strong {
+#portfolio .swiper-wrapper .swiper-slide .txtBox .title strong {
   font-size: 64px;
   display: block;
   margin: 10px 0 20px;
 }
-#portfolio .swiper-slide .imgBox {
+#portfolio .swiper-wrapper .swiper-slide .imgBox {
   z-index: 1;
   position: absolute;
   bottom: -200px;
@@ -404,6 +411,8 @@ body {
 }
 #portfolio .pagination {
   z-index: 10;
+  bottom: 0;
+  top: auto;
 }
 #portfolio .pagination .swiper-pagination-progressbar-fill {
   background-color: #fff;
@@ -439,6 +448,78 @@ body {
   color: #111;
 }
 
+#contact .inner .txtBox {
+  width: 100%;
+  position: relative;
+}
+#contact .inner .txtBox address dl {
+  display: flex;
+  text-align: left;
+  padding: 60px 0;
+  position: relative;
+  border-bottom: 1px solid #fff;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.05) 100%);
+}
+#contact .inner .txtBox address dl:nth-child(1):before {
+  -webkit-animation: moveIcon 20s ease infinite forwards;
+          animation: moveIcon 20s ease infinite forwards;
+}
+#contact .inner .txtBox address dl:nth-child(2):before {
+  -webkit-animation: moveIcon 20s ease 0.5s infinite forwards;
+          animation: moveIcon 20s ease 0.5s infinite forwards;
+}
+#contact .inner .txtBox address dl:nth-child(3):before {
+  -webkit-animation: moveIcon 20s ease 0.75s infinite forwards;
+          animation: moveIcon 20s ease 0.75s infinite forwards;
+}
+#contact .inner .txtBox address dl:nth-child(1):before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translateY(-50%);
+  background-image: url("../images/main/contactIcon01.png");
+  background-position: 50% 50%;
+  background-size: contain;
+}
+#contact .inner .txtBox address dl:nth-child(2):before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translateY(-50%);
+  background-image: url("../images/main/contactIcon02.png");
+  background-position: 50% 50%;
+  background-size: contain;
+}
+#contact .inner .txtBox address dl:nth-child(3):before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translateY(-50%);
+  background-image: url("../images/main/contactIcon03.png");
+  background-position: 50% 50%;
+  background-size: contain;
+}
+#contact .inner .txtBox address dl dt,
+#contact .inner .txtBox address dl dd {
+  flex-basis: 50%;
+}
+#contact .inner .txtBox address dl dt {
+  margin-left: 150px;
+  font-weight: 800;
+}
+
 #mousePointer {
   width: 20px;
   height: 20px;
@@ -450,6 +531,7 @@ body {
   transform: translate(-50%, -50%);
   pointer-events: none;
   overflow: hidden;
+  z-index: 9999;
 }
 #mousePointer::before {
   display: block;
@@ -458,6 +540,21 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes scrollAni {
+  0% {
+    top: 5%;
+    opacity: 0;
+  }
+  10% {
+    top: 10%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 0;
+  }
 }
 
 @keyframes scrollAni {
@@ -474,6 +571,20 @@ body {
     opacity: 0;
   }
 }
+@-webkit-keyframes arrowDownAni {
+  0% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
 @keyframes arrowDownAni {
   0% {
     opacity: 0;
@@ -488,12 +599,31 @@ body {
     color: rgba(255, 255, 255, 0.2);
   }
 }
+@-webkit-keyframes cursorAni {
+  0% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: #fff;
+  }
+}
 @keyframes cursorAni {
   0% {
     border-color: transparent;
   }
   100% {
     border-color: #fff;
+  }
+}
+@-webkit-keyframes bracketAni {
+  0% {
+    top: 48%;
+  }
+  50% {
+    top: 53%;
+  }
+  100% {
+    top: 48%;
   }
 }
 @keyframes bracketAni {
@@ -505,5 +635,27 @@ body {
   }
   100% {
     top: 48%;
+  }
+}
+@-webkit-keyframes moveIcon {
+  0% {
+    transform: translateY(-40%);
+  }
+  50% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(-40%);
+  }
+}
+@keyframes moveIcon {
+  0% {
+    transform: translateY(-40%);
+  }
+  50% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(-40%);
   }
 }

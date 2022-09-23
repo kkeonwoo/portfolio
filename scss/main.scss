@@ -7,7 +7,7 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 }
 
 .txtBox,
@@ -328,61 +328,66 @@ body {
 #portfolio {
   overflow: hidden;
   position: relative;
-  .swiper-slide {
-    text-align: center;
-    position: relative;
-    &::before {
-      @include pseudo;
-      @include box(100%, 100%, rgba(0, 0, 0, 0.6));
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-    &::after {
-      @include pseudo;
-      @include box(100%, 100%, transparent);
-      background: {
-        image: url("../images/main/644_thumbnail.png");
-        size: cover;
-        position: 50% 50%;
-        repeat: no-repeat;
-        z-index: -1;
-      }
-      opacity: 0;
-      transition: opacity 0.25s ease-in-out;
-    }
-    &:hover {
-      .imgBox {
-        bottom: 20px;
+  background-color: #000;
+  .swiper-wrapper {
+    .swiper-slide {
+      text-align: center;
+      position: relative;
+      &::before {
+        @include pseudo;
+        @include box(100%, 100%, rgba(0, 0, 0, 0.6));
+        top: 0;
+        left: 0;
+        z-index: 1;
       }
       &::after {
-        opacity: 1;
+        @include pseudo;
+        @include box(100%, 100%, transparent);
+        background: {
+          image: url("../images/main/644_thumbnail.png");
+          size: cover;
+          position: 50% 50%;
+          repeat: no-repeat;
+          z-index: -1;
+        }
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
       }
-    }
-    .txtBox {
-      z-index: 1;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      .listNum {
-        font-size: $font-large;
+      &:hover {
+        .imgBox {
+          bottom: 20px;
+        }
+        &::after {
+          opacity: 1;
+        }
       }
-      .title strong {
-        font-size: $font-extra-large;
-        display: block;
-        margin: 10px 0 20px;
+      .txtBox {
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .listNum {
+          font-size: $font-large;
+        }
+        .title strong {
+          font-size: $font-extra-large;
+          display: block;
+          margin: 10px 0 20px;
+        }
       }
-    }
-    .imgBox {
-      z-index: 1;
-      position: absolute;
-      bottom: -200px;
-      left: 50%;
-      transition: bottom 0.3s ease-in-out;
-      transform: translateX(-50%);
+      .imgBox {
+        z-index: 1;
+        position: absolute;
+        bottom: -200px;
+        left: 50%;
+        transition: bottom 0.3s ease-in-out;
+        transform: translateX(-50%);
+      }
     }
   }
   .pagination {
     z-index: 10;
+    bottom: 0;
+    top: auto;
     .swiper-pagination-progressbar-fill {
       background-color: #fff;
     }
@@ -414,6 +419,57 @@ body {
   }
 }
 
+#contact {
+  .inner {
+    .txtBox {
+      width: 100%;
+      position: relative;
+      address {
+        dl {
+          display: flex;
+          text-align: left;
+          padding: 60px 0;
+          position: relative;
+          border-bottom: 1px solid #fff;
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.05) 100%);
+          &:nth-child(1):before {
+            animation: moveIcon random(2) * 10s ease infinite forwards;
+          }
+          &:nth-child(2):before {
+            animation: moveIcon random(2) * 10s ease random(2) * 0.25s infinite forwards;
+          }
+          &:nth-child(3):before {
+            animation: moveIcon random(2) * 10s ease random(2) * 0.75s infinite forwards;
+          }
+          @for $i from 1 through 3 {
+            &:nth-child(#{$i}):before {
+              @include pseudo;
+              left: 0;
+              top: 50%;
+              width: 120px;
+              height: 120px;
+              transform: translateY(-50%);
+              background: {
+                image: url("../images/main/contactIcon0#{$i}.png");
+                position: 50% 50%;
+                size: contain;
+              }
+            }
+          }
+          dt,
+          dd {
+            flex-basis: 50%;
+          }
+          dt {
+            margin-left: 150px;
+            font-weight: 800;
+          }
+        }
+      }
+    }
+  }
+}
+
 #mousePointer {
   width: 20px;
   height: 20px;
@@ -425,6 +481,7 @@ body {
   transform: translate(-50%, -50%);
   pointer-events: none;
   overflow: hidden;
+  z-index: 9999;
   &::before {
     @include pseudo;
     top: 50%;
@@ -481,5 +538,17 @@ body {
   }
   100% {
     top: 48%;
+  }
+}
+
+@keyframes moveIcon {
+  0% {
+    transform: translateY(-40%);
+  }
+  50% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(-40%);
   }
 }

@@ -19,6 +19,7 @@ body {
   padding: 0 50px;
   transition: all 0.4s ease;
   z-index: 999;
+  backdrop-filter: blur(10px);
   &.on {
     top: 0;
   }
