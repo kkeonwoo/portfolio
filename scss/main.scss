@@ -432,14 +432,38 @@ body {
           position: relative;
           border-bottom: 1px solid #fff;
           background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.05) 100%);
+          &:nth-child(1)::after {
+            @include pseudo;
+            @include box(100%, 100%, #111);
+            top: 0;
+            left: 0;
+            z-index: 2;
+          }
+          &:nth-child(2)::after {
+            @include pseudo;
+            @include box(100%, 100%, #111);
+            top: 0;
+            left: 0;
+            z-index: 2;
+          }
+          &:nth-child(3)::after {
+            @include pseudo;
+            @include box(100%, 100%, #111);
+            top: 0;
+            left: 0;
+            z-index: 2;
+          }
           &:nth-child(1):before {
-            animation: moveIcon random(2) * 10s ease infinite forwards;
+            animation: moveIcon random(2) + 10s ease infinite forwards;
+            z-index: 3;
           }
           &:nth-child(2):before {
-            animation: moveIcon random(2) * 10s ease random(2) * 0.25s infinite forwards;
+            animation: moveIcon random(2) + 10s ease random(1) * 0.25s infinite forwards;
+            z-index: 3;
           }
           &:nth-child(3):before {
-            animation: moveIcon random(2) * 10s ease random(2) * 0.75s infinite forwards;
+            animation: moveIcon random(2) + 10s ease random(2) * 0.75s infinite forwards;
+            z-index: 3;
           }
           @for $i from 1 through 3 {
             &:nth-child(#{$i}):before {

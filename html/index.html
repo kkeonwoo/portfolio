@@ -243,7 +243,7 @@
       const openingHt = $("#opening").offset().top;
       const mainVisualHt = $("#mainVisual").offset().top;
       // swiper
-      const projectSwiper = new Swiper("#portfolio", {
+      const portfolioSwiper = new Swiper("#portfolio", {
         slidesPerView: 3,
         spaceBetween: 50,
         pagination:{
@@ -255,8 +255,9 @@
           prevEl: "#portfolio .btns .prev",
         },
         mousewheel:{
-          releaseOnEdges:true
-        }
+          releaseOnEdges:true,
+          thresholdDelta:100
+        },
       });
 
       // gnb event
@@ -389,8 +390,8 @@
           ease: "linear",
         })
         .addLabel("bracket")
-        // .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        // .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
+        .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
         .from("#opening .txtBox h2", {
           opacity: 0,
           scale: 0.9,
@@ -765,7 +766,9 @@
         duration:0.25,
         ease:"linear"
       })
-      
+      .from("#strength",{
+        duration:5
+      })
       
       // portfolio Timeline
       const portfolioTL = gsap.timeline({
@@ -780,8 +783,18 @@
       })
       portfolioTL.from("#portfolio",{
         opacity:0,
-        duration:0.25
+        duration:0.25,
+        onUpdate:()=>{
+          portfolioSwiper.detachEvents()
+        },
+        onComlete:()=>{
+          portfolioSwiper.attachEvents()
+        }
       })
+      .to("#portfolio",{
+        duration:5
+      })
+
 
       // contact Timeline
       const contactTL = gsap.timeline({
@@ -806,6 +819,13 @@
         duration:5,
         ease:"ease.inOut",
       })
+      .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(1)::after"),{
+        cssRule:{
+          width:0,
+        },
+        duration:1,
+        ease:"linear"
+      })
       .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::before"),{
         cssRule:{
           marginLeft:1000,
@@ -814,6 +834,13 @@
         duration:5,
         ease:"ease.inOut",
       })
+      .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::after"),{
+        cssRule:{
+          width:0,
+        },
+        duration:1,
+        ease:"linear"
+      })
       .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::before"),{
         cssRule:{
           marginLeft:1000,
@@ -821,6 +848,31 @@
         },
         duration:5,
         ease:"ease.inOut",
+      })
+       .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::after"),{
+        cssRule:{
+          width:0,
+        },
+        duration:1,
+        ease:"linear"
+      })
+      .from("#contact dt",{
+        opacity:0,
+        y:50,
+        ease:"back.in",
+        duration:0.5,
+        stagger:{
+          each:0.3
+        }
+      })
+      .from("#contact dd",{
+        opacity:0,
+        y:50,
+        ease:"back.in",
+        duration:0.5,
+        stagger:{
+          each:0.3
+        }
       })
     </script>
     <!-- //script -->

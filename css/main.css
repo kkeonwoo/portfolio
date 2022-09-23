@@ -460,17 +460,56 @@ body {
   border-bottom: 1px solid #fff;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.05) 100%);
 }
+#contact .inner .txtBox address dl:nth-child(1)::after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+#contact .inner .txtBox address dl:nth-child(2)::after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+#contact .inner .txtBox address dl:nth-child(3)::after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 #contact .inner .txtBox address dl:nth-child(1):before {
-  -webkit-animation: moveIcon 20s ease infinite forwards;
-          animation: moveIcon 20s ease infinite forwards;
+  -webkit-animation: moveIcon 12s ease infinite forwards;
+          animation: moveIcon 12s ease infinite forwards;
+  z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(2):before {
-  -webkit-animation: moveIcon 20s ease 0.5s infinite forwards;
-          animation: moveIcon 20s ease 0.5s infinite forwards;
+  -webkit-animation: moveIcon 11s ease 0.25s infinite forwards;
+          animation: moveIcon 11s ease 0.25s infinite forwards;
+  z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(3):before {
-  -webkit-animation: moveIcon 20s ease 0.75s infinite forwards;
-          animation: moveIcon 20s ease 0.75s infinite forwards;
+  -webkit-animation: moveIcon 12s ease 0.75s infinite forwards;
+          animation: moveIcon 12s ease 0.75s infinite forwards;
+  z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
   display: block;
