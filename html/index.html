@@ -8,10 +8,10 @@
     <!-- link-favicon -->
     <link rel="shortcut icon" href="../images/common/favicon.png" type="image/x-icon" />
     <!-- link-thumbnail -->
-    <!-- <meta property="og:url" content="https://code-study.tistory.com/"> -->
+    <meta property="og:url" content="https://file-keonwoolee-portfolio.netlify.app/html/">
     <meta property="og:title" content="이건우 - 포트폴리오">
     <meta property="og:type" content="website">
-    <!-- <meta property="og:image" content="https://code-study.tistory.com/images/img_share.png"> -->
+    <meta property="og:image" content="https://file-keonwoolee-portfolio.netlify.app/images/common/link-thumbnail.png">
     <meta property="og:description" content="나를 채우는 < : 빈칸 >">
     <!-- link-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +35,7 @@
     <script src="../js/greensock/CSSRulePlugin.min.js"></script>
     <script src="../js/greensock/ScrollTrigger.min.js"></script>
     <script src="../js/greensock/TextPlugin.min.js"></script>
+    <script src="../js/greensock/ScrollToPlugin.min.js"></script>
     <script src="../js/swiper-bundle.min.js"></script>
   </head>
   <body>
@@ -45,13 +46,13 @@
         <h2 class="blind">gnb</h2>
         <ul class="list">
           <li class="click">
-            <a href="#" class="depth01"> ABOUT ME </a>
+            <button id="#mainVisual" class="depth01"> ABOUT ME </button>
           </li>
           <li>
-            <a href="#" class="depth01"> PORTFOLIO </a>
+            <button id="#portfolio" class="depth01"> PORTFOLIO </button>
           </li>
           <li>
-            <a href="#" class="depth01"> CONTACT </a>
+            <button id="#contact" class="depth01"> CONTACT </button>
           </li>
         </ul>
       </nav>
@@ -78,7 +79,7 @@
         </div>
       </section>
       <!-- mainVisual -->
-      <section id="mainVisual" class="section">
+      <section id="mainVisual" class="section section1">
         <div class="inner">
           <div class="titleBox">
             <h2 class="title"><strong>ABOUT</strong></h2>
@@ -145,39 +146,69 @@
         </div>
       </section>
       <!-- //aboutMe -->
-      <section id="portfolio" class="section">
+      <section id="portfolio" class="section section2">
         <ul class="swiper-wrapper">
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">1</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>644</strong></h2>
+              <p class="desc">WEBSITE CLONE CODING <br> for studing scrollTrigger</p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="">
+                  <img src="../images/main/css-3.png" alt="">
+                  <img src="../images/main/js.png" alt="">
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button><a href="https://644.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt=""></a></button>
+              <button><a href="https://github.com/kkeonwoo/644" class="btn" target="_blank"><img src="../images/main/git.png" alt=""></a></button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">2</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>NAVER <br> BAND</strong></h2>
+              <p class="desc">WEBSITE CLONE CODING <br> for studing scrollTrigger</p>
+              <p class="usedTool">
+                <div class="imgBox">
+                <img src="../images/main/html-5.png" alt="">
+                <img src="../images/main/css-3.png" alt="">
+                <img src="../images/main/js.png" alt="">
+              </div>
+            </p>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button><a href="https://naver-band.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt=""></a></button>
+              <button><a href="https://github.com/kkeonwoo/naver-band" class="btn" target="_blank"><img src="../images/main/git.png" alt=""></a></button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">3</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>samsungcnt</strong></h2>
+              <p class="desc">WEBSITE CLONE CODING</p>
+              <p class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="">
+                  <img src="../images/main/css-3.png" alt="">
+                  <img src="../images/main/js.png" alt="">
+                </div>
+              </p>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button><a href="https://samsungcnt.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt=""></a></button>
+              <button><a href="https://github.com/kkeonwoo/samsungcnt" class="btn" target="_blank"><img src="../images/main/git.png" alt=""></a></button>
             </div>
           </li>
           <li class="swiper-slide">
@@ -190,6 +221,10 @@
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
+            <div class="btnAll">
+              <button><a href="" class="btn" target="_blank"><img src="../images/main/online.png" alt=""></a></button>
+              <button><a href="" class="btn" target="_blank"><img src="../images/main/git.png" alt=""></a></button>
+            </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
@@ -201,6 +236,10 @@
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
+            <div class="btnAll">
+              <button><a href="" class="btn" target="_blank"><img src="../images/main/online.png" alt=""></a></button>
+              <button><a href="" class="btn" target="_blank"><img src="../images/main/git.png" alt=""></a></button>
+            </div>
           </li>
         </ul>
         <div class="pagination">
@@ -210,7 +249,7 @@
           <button class="btn next material-icons">chevron_right</button>
         </div>
       </section>
-      <section id="contact" class="section">
+      <section id="contact" class="section section3">
         <div class="inner">
           <div class="titleBox">
             <h2 class="title"><strong>CONTACT</strong></h2>
@@ -267,10 +306,18 @@
       });
 
       // gnb event
-      $("#gnb .list >li").on("click", function (e) {
-        e.preventDefault();
-        $(this).addClass("click").siblings().removeClass("click");
-      });
+      $("#gnb .list >li").each(function(idx,item){
+        $(item).on("click", function (e) {
+          $(item).addClass("click").siblings().removeClass("click");
+          gsap.to(window,{
+            duration:1,
+            scrollTo:{
+              y:".section"+ (idx + 1),
+              autoKill : true,
+            }
+          })
+        });
+      })
       $("#gnb .list >li").on("mouseenter", function () {
         const tx = $(this).offset().left + $(this).width() / 2;
         gsap.to("#ball", {
@@ -287,6 +334,7 @@
           duration: 0.5,
         });
       });
+     
 
       // mousePointer
       $(window).on("mousemove", function (e) {

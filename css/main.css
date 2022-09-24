@@ -353,6 +353,7 @@ body {
 #portfolio .swiper-wrapper .swiper-slide {
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 #portfolio .swiper-wrapper .swiper-slide::before {
   display: block;
@@ -366,7 +367,7 @@ body {
   left: 0;
   z-index: 1;
 }
-#portfolio .swiper-wrapper .swiper-slide::after {
+#portfolio .swiper-wrapper .swiper-slide:nth-child(1):after {
   display: block;
   position: absolute;
   content: "";
@@ -374,7 +375,87 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/644_thumbnail.png");
+  background-image: url("../images/main/thumbnail01.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(2):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail02.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(3):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail03.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(4):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail04.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(5):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail05.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(6):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail06.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -387,8 +468,21 @@ body {
 }
 #portfolio .swiper-wrapper .swiper-slide:hover::after {
   opacity: 1;
+  -webkit-animation: imgScale 1s ease-in 1 forwards;
+          animation: imgScale 1s ease-in 1 forwards;
+}
+#portfolio .swiper-wrapper .swiper-slide:hover .txtBox {
+  top: 40%;
+}
+#portfolio .swiper-wrapper .swiper-slide:hover .txtBox .desc,
+#portfolio .swiper-wrapper .swiper-slide:hover .txtBox .imgBox {
+  opacity: 0;
+}
+#portfolio .swiper-wrapper .swiper-slide:hover .btnAll {
+  opacity: 1;
 }
 #portfolio .swiper-wrapper .swiper-slide .txtBox {
+  transition: all 0.25s linear;
   z-index: 1;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -398,16 +492,57 @@ body {
 }
 #portfolio .swiper-wrapper .swiper-slide .txtBox .title strong {
   font-size: 64px;
-  display: block;
+  display: inline-block;
   margin: 10px 0 20px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 0%, rgb(255, 255, 255) 30%, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.2) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
-#portfolio .swiper-wrapper .swiper-slide .imgBox {
+#portfolio .swiper-wrapper .swiper-slide .txtBox .desc {
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: "Noto Sans KR", serif;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide .txtBox .imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide .txtBox .imgBox img {
+  height: 40px;
+}
+#portfolio .swiper-wrapper .swiper-slide > .imgBox {
   z-index: 1;
   position: absolute;
   bottom: -200px;
   left: 50%;
   transition: bottom 0.3s ease-in-out;
   transform: translateX(-50%);
+}
+#portfolio .swiper-wrapper .swiper-slide .btnAll {
+  position: absolute;
+  bottom: 40%;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+#portfolio .swiper-wrapper .swiper-slide .btnAll .btn {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #fff;
+}
+#portfolio .swiper-wrapper .swiper-slide .btnAll .btn img {
+  height: 30px;
 }
 #portfolio .pagination {
   z-index: 10;
@@ -497,13 +632,13 @@ body {
   z-index: 2;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
-  -webkit-animation: moveIcon 12s ease infinite forwards;
-          animation: moveIcon 12s ease infinite forwards;
+  -webkit-animation: moveIcon 11s ease infinite forwards;
+          animation: moveIcon 11s ease infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(2):before {
-  -webkit-animation: moveIcon 11s ease 0.25s infinite forwards;
-          animation: moveIcon 11s ease 0.25s infinite forwards;
+  -webkit-animation: moveIcon 12s ease 0.25s infinite forwards;
+          animation: moveIcon 12s ease 0.25s infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(3):before {
@@ -696,5 +831,21 @@ body {
   }
   100% {
     transform: translateY(-40%);
+  }
+}
+@-webkit-keyframes imgScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes imgScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
   }
 }

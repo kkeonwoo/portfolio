@@ -333,6 +333,7 @@ body {
     .swiper-slide {
       text-align: center;
       position: relative;
+      overflow: hidden;
       &::before {
         @include pseudo;
         @include box(100%, 100%, rgba(0, 0, 0, 0.6));
@@ -340,28 +341,43 @@ body {
         left: 0;
         z-index: 1;
       }
-      &::after {
-        @include pseudo;
-        @include box(100%, 100%, transparent);
-        background: {
-          image: url("../images/main/644_thumbnail.png");
-          size: cover;
-          position: 50% 50%;
-          repeat: no-repeat;
-          z-index: -1;
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}):after {
+          @include pseudo;
+          @include box(100%, 100%, transparent);
+          background: {
+            image: url("../images/main/thumbnail0#{$i}.png");
+            size: cover;
+            position: 50% 50%;
+            repeat: no-repeat;
+            z-index: -1;
+          }
+          opacity: 0;
+          transition: opacity 0.25s ease-in-out;
         }
-        opacity: 0;
-        transition: opacity 0.25s ease-in-out;
       }
+
       &:hover {
         .imgBox {
           bottom: 20px;
         }
         &::after {
           opacity: 1;
+          animation: imgScale 1s ease-in 1 forwards;
+        }
+        .txtBox {
+          top: 40%;
+          .desc,
+          .imgBox {
+            opacity: 0;
+          }
+        }
+        .btnAll {
+          opacity: 1;
         }
       }
       .txtBox {
+        transition: all 0.25s linear;
         z-index: 1;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -370,17 +386,58 @@ body {
         }
         .title strong {
           font-size: $font-extra-large;
-          display: block;
+          display: inline-block;
           margin: 10px 0 20px;
+          background: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 0.2) 100%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        .desc {
+          line-height: 1.5;
+          margin-bottom: 20px;
+          font-family: "Noto Sans KR", serif;
+          transition: opacity 0.25s ease-in-out;
+        }
+        .imgBox {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: opacity 0.25s ease-in-out;
+          img {
+            height: 40px;
+          }
         }
       }
-      .imgBox {
+      > .imgBox {
         z-index: 1;
         position: absolute;
         bottom: -200px;
         left: 50%;
         transition: bottom 0.3s ease-in-out;
         transform: translateX(-50%);
+      }
+      .btnAll {
+        position: absolute;
+        bottom: 40%;
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        .btn {
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 200px;
+          height: 50px;
+          border-radius: 30px;
+          background-color: #fff;
+          img {
+            height: 30px;
+          }
+        }
       }
     }
   }
@@ -574,5 +631,14 @@ body {
   }
   100% {
     transform: translateY(-40%);
+  }
+}
+
+@keyframes imgScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
   }
 }

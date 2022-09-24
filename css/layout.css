@@ -51,16 +51,18 @@ body {
   color: #fff;
   font-weight: 500;
 }
-#gnb .list > li:hover a::before,
-#gnb .list > li:hover a::after {
+#gnb .list > li:hover button::before,
+#gnb .list > li:hover button::after {
   opacity: 1;
 }
-#gnb .list > li a {
+#gnb .list > li button {
   display: inline-block;
   position: relative;
   padding: 0 10px;
+  font-family: inherit;
+  font-size: 16px;
 }
-#gnb .list > li a::before {
+#gnb .list > li button::before {
   content: " (";
   position: absolute;
   top: 50%;
@@ -69,7 +71,7 @@ body {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-#gnb .list > li a::after {
+#gnb .list > li button::after {
   content: " )";
   position: absolute;
   top: 50%;

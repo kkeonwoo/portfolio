@@ -51,15 +51,17 @@ body {
       &:hover {
         color: #fff;
         font-weight: 500;
-        a::before,
-        a::after {
+        button::before,
+        button::after {
           opacity: 1;
         }
       }
-      a {
+      button {
         display: inline-block;
         position: relative;
         padding: 0 10px;
+        font-family: inherit;
+        font-size: 16px;
         &::before {
           content: " (";
           @include absCenter(false, true);
