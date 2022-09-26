@@ -227,12 +227,80 @@ body {
       }
       .text {
         height: 100px;
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
         font-size: $font-large + 8;
         font-family: "WildernessTypeface-Regular";
         @include absCenter(true, true);
         border-right: 5px solid #fff;
         animation: cursorAni 1s ease-in-out infinite forwards;
+      }
+    }
+  }
+}
+
+#aboutMe {
+  .inner {
+    display: flex;
+    align-items: center;
+    .titleBox {
+      .title {
+        &::before {
+          @include box(350px, 110px, transparent);
+          z-index: -1;
+          background: {
+            image: url("../images/main/aboutMeTitleBg.png");
+          }
+        }
+      }
+    }
+    .contents {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .txtBox {
+        position: relative;
+        top: auto;
+        transform: translateY(0);
+        dl {
+          margin-bottom: 50px;
+          &:nth-child(2) {
+            text-align: right;
+          }
+          dt {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+          }
+          dd {
+            strong {
+              color: #fff;
+            }
+            color: #999;
+          }
+        }
+      }
+      .imgBox {
+        width: 350px;
+        &::before {
+          content: "Lee KeonWoo";
+          display: block;
+          position: absolute;
+          bottom: 20%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: $font-extra-large;
+          width: 120%;
+          font-weight: 800;
+          text-align: center;
+        }
+        img {
+          width: 100%;
+        }
       }
     }
   }
@@ -269,7 +337,7 @@ body {
       }
     }
     .contents {
-      font-size: $font-medium - 2;
+      font-size: $font-medium + 8;
       margin: 80px auto 0;
       padding-right: 180px;
       position: relative;
@@ -283,6 +351,9 @@ body {
           strong {
             display: inline-block;
             width: 200px;
+          }
+          em {
+            font-weight: 800;
           }
         }
         .return {
@@ -303,7 +374,7 @@ body {
           width: 200px;
           text-align: center;
           position: absolute;
-          left: 40%;
+          left: 46%;
           top: 10%;
         }
       }
@@ -317,6 +388,7 @@ body {
           transform: translateY(-50%);
           color: rgb(110, 185, 208);
           span {
+            font-weight: 800;
             color: rgb(219, 94, 48);
           }
         }
@@ -341,12 +413,12 @@ body {
         left: 0;
         z-index: 1;
       }
-      @for $i from 1 through 6 {
+      @for $i from 1 through 20 {
         &:nth-child(#{$i}):after {
           @include pseudo;
           @include box(100%, 100%, transparent);
           background: {
-            image: url("../images/main/thumbnail0#{$i}.png");
+            image: url("../images/main/thumbnail#{$i}.png");
             size: cover;
             position: 50% 50%;
             repeat: no-repeat;
@@ -478,6 +550,17 @@ body {
 
 #contact {
   .inner {
+    .titleBox {
+      .title {
+        &::before {
+          @include box(300px, 100px, transparent);
+          z-index: -1;
+          background: {
+            image: url("../images/main/contactTitleBg.png");
+          }
+        }
+      }
+    }
     .txtBox {
       width: 100%;
       position: relative;

@@ -250,7 +250,8 @@ body {
 }
 #mainVisual .contents .imgBox .text {
   height: 100px;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   font-size: 50px;
   font-family: "WildernessTypeface-Regular";
   position: absolute;
@@ -260,6 +261,68 @@ body {
   border-right: 5px solid #fff;
   -webkit-animation: cursorAni 1s ease-in-out infinite forwards;
           animation: cursorAni 1s ease-in-out infinite forwards;
+}
+
+#aboutMe .inner {
+  display: flex;
+  align-items: center;
+}
+#aboutMe .inner .titleBox .title::before {
+  display: block;
+  width: 350px;
+  height: 110px;
+  background-color: transparent;
+  z-index: -1;
+  background-image: url("../images/main/aboutMeTitleBg.png");
+}
+#aboutMe .inner .contents {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#aboutMe .inner .contents .txtBox {
+  position: relative;
+  top: auto;
+  transform: translateY(0);
+}
+#aboutMe .inner .contents .txtBox dl {
+  margin-bottom: 50px;
+}
+#aboutMe .inner .contents .txtBox dl:nth-child(2) {
+  text-align: right;
+}
+#aboutMe .inner .contents .txtBox dl dt {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+#aboutMe .inner .contents .txtBox dl dd {
+  color: #999;
+}
+#aboutMe .inner .contents .txtBox dl dd strong {
+  color: #fff;
+}
+#aboutMe .inner .contents .imgBox {
+  width: 350px;
+}
+#aboutMe .inner .contents .imgBox::before {
+  content: "Lee KeonWoo";
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  width: 120%;
+  font-weight: 800;
+  text-align: center;
+}
+#aboutMe .inner .contents .imgBox img {
+  width: 100%;
 }
 
 #strength .inner {
@@ -291,7 +354,7 @@ body {
   background-image: url("../images/main/strengthBg.png");
 }
 #strength .inner .contents {
-  font-size: 26px;
+  font-size: 36px;
   margin: 80px auto 0;
   padding-right: 180px;
   position: relative;
@@ -308,6 +371,9 @@ body {
 #strength .inner .contents .contentsBg .func strong {
   display: inline-block;
   width: 200px;
+}
+#strength .inner .contents .contentsBg .func em {
+  font-weight: 800;
 }
 #strength .inner .contents .contentsBg .return {
   text-align: left;
@@ -327,7 +393,7 @@ body {
   width: 200px;
   text-align: center;
   position: absolute;
-  left: 40%;
+  left: 46%;
   top: 10%;
 }
 #strength .inner .contents .returnNum {
@@ -342,6 +408,7 @@ body {
   color: rgb(110, 185, 208);
 }
 #strength .inner .contents .returnNum li span {
+  font-weight: 800;
   color: rgb(219, 94, 48);
 }
 
@@ -375,7 +442,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail01.png");
+  background-image: url("../images/main/thumbnail1.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -391,7 +458,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail02.png");
+  background-image: url("../images/main/thumbnail2.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -407,7 +474,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail03.png");
+  background-image: url("../images/main/thumbnail3.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -423,7 +490,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail04.png");
+  background-image: url("../images/main/thumbnail4.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -439,7 +506,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail05.png");
+  background-image: url("../images/main/thumbnail5.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -455,7 +522,231 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: url("../images/main/thumbnail06.png");
+  background-image: url("../images/main/thumbnail6.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(7):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail7.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(8):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail8.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(9):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail9.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(10):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail10.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(11):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail11.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(12):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail12.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(13):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail13.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(14):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail14.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(15):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail15.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(16):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail16.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(17):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail17.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(18):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail18.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(19):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail19.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+#portfolio .swiper-wrapper .swiper-slide:nth-child(20):after {
+  display: block;
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("../images/main/thumbnail20.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -583,6 +874,14 @@ body {
   color: #111;
 }
 
+#contact .inner .titleBox .title::before {
+  display: block;
+  width: 300px;
+  height: 100px;
+  background-color: transparent;
+  z-index: -1;
+  background-image: url("../images/main/contactTitleBg.png");
+}
 #contact .inner .txtBox {
   width: 100%;
   position: relative;
@@ -642,8 +941,8 @@ body {
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(3):before {
-  -webkit-animation: moveIcon 12s ease 0.75s infinite forwards;
-          animation: moveIcon 12s ease 0.75s infinite forwards;
+  -webkit-animation: moveIcon 12s ease 1.5s infinite forwards;
+          animation: moveIcon 12s ease 1.5s infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
