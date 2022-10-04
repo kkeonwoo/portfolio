@@ -4,6 +4,7 @@
 }
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .txtBox,
@@ -936,8 +937,8 @@ body {
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(2):before {
-  -webkit-animation: moveIcon 12s ease 0.25s infinite forwards;
-          animation: moveIcon 12s ease 0.25s infinite forwards;
+  -webkit-animation: moveIcon 11s ease 0.25s infinite forwards;
+          animation: moveIcon 11s ease 0.25s infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(3):before {
