@@ -63,7 +63,7 @@
     <main id="main">
       <!-- opening -->
       <section id="opening">
-        <div class="rect"></div>
+        <!-- <div class="rect"></div> -->
         <div class="scrollAni">
           <span class="mouse"></span>
           <div class="arrowDown">
@@ -299,7 +299,7 @@
               <h2 class="title"><strong>HITOP</strong></h2>
               <p class="desc">
                 WEBSITE CLONE CODING <br />
-                for studing responsive web, php, swiper
+                for studing responsive web, swiper
               </p>
               <div class="usedTool">
                 <div class="imgBox">
@@ -327,7 +327,7 @@
               <h2 class="title"><strong>SOFTCOMPANY</strong></h2>
               <p class="desc">
                 WEBSITE CLONE CODING <br />
-                for studing responsive web, php
+                for studing responsive web
               </p>
               <div class="usedTool">
                 <div class="imgBox">
@@ -355,7 +355,7 @@
               <h2 class="title"><strong>ITRONICS</strong></h2>
               <p class="desc">
                 WEBSITE CLONE CODING <br />
-                for studing responsive web, php, swiper
+                for studing responsive web, swiper
               </p>
               <div class="usedTool">
                 <div class="imgBox">
@@ -520,7 +520,7 @@
               </button>
             </div>
           </li>
-          <li class="swiper-slide">
+          <!-- <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">13</span>
               <h2 class="title"><strong>G-MARKET</strong></h2>
@@ -548,10 +548,10 @@
                 <a href="https://github.com/kkeonwoo/crawling" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
               </button>
             </div>
-          </li>
+          </li> -->
           <li class="swiper-slide">
             <div class="txtBox">
-              <span class="listNum">14</span>
+              <span class="listNum">13</span>
               <h2 class="title"><strong>NAVER BOOK</strong></h2>
               <p class="desc">
                 NODE JS, NAVER-API TOY PROJECT <br />
@@ -580,7 +580,7 @@
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
-              <span class="listNum">15</span>
+              <span class="listNum">14</span>
               <h2 class="title"><strong>NAVER PAPAGO</strong></h2>
               <p class="desc">
                 NODE JS, NAVER-API TOY PROJECT <br />
@@ -709,77 +709,75 @@
         gsap.to("#mousePointer", { left: `${posX}`, top: `${posY}`, ease: "power2", duration: 0.3 });
       });
 
-      //mousePointer transform
-
       // opening event
-      for (let i = 0; i < 352; i++) {
-        if (i <= 32 * 3) {
-          $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i > 32 * 3 && i <= 32 * 7) {
-          $(".rect").append(`<span class="hover row02"></span>`);
-        } else {
-          $(".rect").append(`<span class="hover row03"></span>`);
-        }
-      }
-      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
-      let clickCount = 0;
-      $(".rect span").on("click", function (e) {
-        if ($(e.target).hasClass("clicked")) {
-          console.log("false");
-        } else {
-          clickCount++;
-          $(e.target).addClass("clicked");
-          gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
-          if (clickCount >= 3) {
-            // 애니메이션 시작
-            const openingTL = gsap.timeline();
-            openingTL
-              .to(".rect span", {
-                backgroundColor: (idx, item) => {
-                  return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
-                },
-                stagger: { each: 0.01, from: "random" },
-                onUpdate: () => {
-                  $(".rect span").removeClass("hover");
-                },
-              })
-              .addLabel("rotate")
-              .to(
-                ".rect .row01",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(
-                ".rect .row03",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(".rect .row02", {
-                rotationY: 180,
-                stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
-              })
-              .to(".rect span", {
-                rotateY: -180,
-                backgroundColor: "#111",
-                stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
-                onComplete: () => {
-                  const openingEndTL = gsap.timeline();
-                  openingEndTL
-                    .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
-                    .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("body", { overflowY: "scroll" });
-                },
-              });
-          }
-        }
-      });
+      // for (let i = 0; i < 352; i++) {
+      //   if (i <= 32 * 3) {
+      //     $(".rect").append(`<span class="hover row01"></span>`);
+      //   } else if (i > 32 * 3 && i <= 32 * 7) {
+      //     $(".rect").append(`<span class="hover row02"></span>`);
+      //   } else {
+      //     $(".rect").append(`<span class="hover row03"></span>`);
+      //   }
+      // }
+      // const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      // let clickCount = 0;
+      // $(".rect span").on("click", function (e) {
+      //   if ($(e.target).hasClass("clicked")) {
+      //     console.log("false");
+      //   } else {
+      //     clickCount++;
+      //     $(e.target).addClass("clicked");
+      //     gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+      //     if (clickCount >= 3) {
+      //       // 애니메이션 시작
+      //       const openingTL = gsap.timeline();
+      //       openingTL
+      //         .to(".rect span", {
+      //           backgroundColor: (idx, item) => {
+      //             return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+      //           },
+      //           stagger: { each: 0.01, from: "random" },
+      //           onUpdate: () => {
+      //             $(".rect span").removeClass("hover");
+      //           },
+      //         })
+      //         .addLabel("rotate")
+      //         .to(
+      //           ".rect .row01",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(
+      //           ".rect .row03",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(".rect .row02", {
+      //           rotationY: 180,
+      //           stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+      //         })
+      //         .to(".rect span", {
+      //           rotateY: -180,
+      //           backgroundColor: "#111",
+      //           stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+      //           onComplete: () => {
+      //             const openingEndTL = gsap.timeline();
+      //             openingEndTL
+      //               .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
+      //               .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("body", { overflowY: "scroll" });
+      //           },
+      //         });
+      //     }
+      //   }
+      // });
 
       // openingTxt timeline
       const openingTxtTL = gsap.timeline({

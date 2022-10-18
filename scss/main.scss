@@ -7,7 +7,7 @@
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
+  // overflow-y: hidden;
 }
 
 .txtBox,
@@ -86,7 +86,7 @@ body {
     top: 90%;
     flex-direction: column;
     align-items: center;
-    opacity: 0;
+    opacity: 1;
     .mouse {
       display: block;
       width: 22px;
@@ -124,7 +124,7 @@ body {
   .txtBox {
     @include absCenter(true, true);
     font-size: $font-medium - 4;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     &::before,
     &::after {
