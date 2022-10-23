@@ -714,6 +714,28 @@
           duration: 0.5,
         });
       });
+      // gnb mobile btn click
+      $("#header .btnAll").on("click", function () {
+        $(this).toggleClass("on");
+        if ($(this).hasClass("on")) {
+          gsap.to("#gnb", {
+            display: "block",
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: "back",
+          });
+        } else {
+          $(this).removeClass("on");
+          gsap.to("#gnb", {
+            display: "none",
+            opacity: 0,
+            y: -300,
+            duration: 0.5,
+            ease: "back.in",
+          });
+        }
+      });
 
       // mousePointer
       $(window).on("mousemove", function (e) {
@@ -807,6 +829,16 @@
             $("#header").addClass("on");
           },
           onEnterBack: () => {
+            if (!$("#header").hasClass("on")) {
+              $("#header .btnAll").removeClass("on");
+              gsap.to("#gnb", {
+                display: "none",
+                opacity: 0,
+                y: -300,
+                duration: 0.5,
+                ease: "back.in",
+              });
+            }
             gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
             $("#header").removeClass("on");
           },

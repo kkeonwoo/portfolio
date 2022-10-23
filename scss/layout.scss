@@ -19,12 +19,12 @@ body {
   z-index: 999;
   padding: 0 50px;
   transition: all 0.4s ease;
-  backdrop-filter: blur(10px);
   &.on {
     top: 0;
   }
   .btnAll {
     position: relative;
+    width: 30px;
     height: 20px;
     display: none;
     &.on {
@@ -50,12 +50,14 @@ body {
       height: 2px;
       background-color: #fff;
       &:nth-child(1) {
+        transition: all 0.25s ease-in-out;
         top: 0;
       }
       &:nth-child(1) {
         top: 50%;
       }
       &:nth-child(3) {
+        transition: all 0.25s ease-in-out;
         top: 100%;
       }
     }
@@ -71,6 +73,7 @@ body {
   line-height: 1;
   border: 1px solid #fff;
   border-radius: 100%;
+  z-index: 11;
 }
 
 #gnb {
@@ -164,7 +167,11 @@ body {
     top: clamp(50px, 7.8vw, 80px);
     bottom: 0;
     right: 0;
+    transform: translateY(-300px);
+    opacity: 0;
+    display: none;
     .list {
+      background-color: #111;
       flex-direction: column;
       justify-content: center;
       text-align: center;
