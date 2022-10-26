@@ -23,7 +23,7 @@ body {
 #header .btnAll {
   position: relative;
   width: 30px;
-  height: 20px;
+  height: clamp(13px, 1vw, 20px);
   display: none;
 }
 #header .btnAll.on span:nth-child(1) {
@@ -41,7 +41,7 @@ body {
   position: absolute;
   display: block;
   right: 0;
-  width: 30px;
+  width: clamp(20px, 1.5vw, 30px);
   height: 2px;
   background-color: #fff;
 }
@@ -173,9 +173,20 @@ body {
     text-align: center;
   }
   #gnb .list > li {
-    margin: 10px 0;
+    margin: clamp(5px, 0.9vw, 10px) 0;
   }
   #ball {
     display: none;
+  }
+}
+@media all and (max-width: 720px) {
+  #logo {
+    font-size: clamp(12px, 1.9vw, 14px);
+  }
+  #gnb .list > li button {
+    font-size: clamp(12px, 2.2vw, 16px);
+  }
+  #header .btnAll span {
+    height: 1px;
   }
 }
