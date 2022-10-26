@@ -2,6 +2,10 @@
   font-family: "WildernessTypeface-Regular";
   src: url("../font/WildernessTypeface-Regular.ttf") format("ttf");
 }
+.break {
+  display: none;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -931,8 +935,8 @@ body {
   z-index: 2;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
-  -webkit-animation: moveIcon 11s ease infinite forwards;
-          animation: moveIcon 11s ease infinite forwards;
+  -webkit-animation: moveIcon 12s ease infinite forwards;
+          animation: moveIcon 12s ease infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(2):before {
@@ -1146,5 +1150,39 @@ body {
   }
   100% {
     transform: scale(1.1);
+  }
+}
+@media all and (max-width: 1400px) {
+  #opening .scrollAni .mouse {
+    width: clamp(18px, 2.1vw, 22px);
+    height: clamp(34px, 2.8vw, 40px);
+  }
+  #opening .scrollAni .arrowDown span {
+    font-size: clamp(20px, 1.7vw, 24px);
+  }
+}
+@media all and (max-width: 1024px) {
+  #opening .txtBox {
+    font-size: clamp(20px, 2.3vw, 24px);
+  }
+  #opening .scrollAni .mouse {
+    display: none;
+  }
+}
+@media all and (max-width: 820px) {
+  .break {
+    display: block;
+  }
+  #opening .txtBox {
+    font-size: clamp(16px, 2.4vw, 20px);
+  }
+  #opening .txtBox p span {
+    line-height: 1.2;
+  }
+  #opening .txtBox h2 {
+    font-size: clamp(30px, 4.3vw, 36px);
+  }
+  #opening .txtBox > span {
+    line-height: 1.2;
   }
 }
