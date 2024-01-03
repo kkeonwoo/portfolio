@@ -130,9 +130,9 @@
                 <dd>중앙대학교 산업디자인학과 졸업</dd>
               </dl>
             </div>
-            <div class="imgBox">
+            <!-- <div class="imgBox">
               <img src="../images/main/프로필 흑백.jpg" alt="" />
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -691,13 +691,7 @@
       $("#gnb .list >li").each(function (idx, item) {
         $(item).on("click", function (e) {
           $(item).addClass("click").siblings().removeClass("click");
-          gsap.to(window, {
-            duration: 1,
-            scrollTo: {
-              y: ".section" + (idx + 1),
-              autoKill: true,
-            },
-          });
+          gsap.to(window, { duration: 1, scrollTo: { y: ".section" + (idx + 1), autoKill: true}});
         });
       });
       $("#gnb .list >li").on("mouseenter", function () {
@@ -720,22 +714,10 @@
       $("#header .btnAll").on("click", function () {
         $(this).toggleClass("on");
         if ($(this).hasClass("on")) {
-          gsap.to("#gnb", {
-            display: "block",
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: "back",
-          });
+          gsap.to("#gnb", { display: "block", opacity: 1, y: 0, duration: 0.5, ease: "back"});
         } else {
           $(this).removeClass("on");
-          gsap.to("#gnb", {
-            display: "none",
-            opacity: 0,
-            y: -300,
-            duration: 0.5,
-            ease: "back.in",
-          });
+          gsap.to("#gnb", { display: "none", opacity: 0, y: -300, duration: 0.5, ease: "back.in"});
         }
       });
 
@@ -824,7 +806,6 @@
           end: "+=110%",
           pinSpacing: false,
           scrub: 1,
-          // markers: true,
           pin: true,
           onLeave: () => {
             gsap.to("#opening", { display: "none", opacity: 0, duration: 0.3, ease: "linear" });
@@ -834,42 +815,22 @@
             $("#header").removeClass("on");
             if (!$("#header").hasClass("on")) {
               $("#header .btnAll").removeClass("on");
-              gsap.to("#gnb", {
-                display: "none",
-                opacity: 0,
-                y: -300,
-                duration: 0.5,
-                ease: "back.in",
-              });
+              gsap.to("#gnb", { display: "none", opacity: 0, y: -300, duration: 0.5, ease: "back.in"});
             }
-            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
+            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear"});
           },
         },
       });
+
       openingTxtTL
         .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
         .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
-        .to("#opening .txtBox p", {
-          opacity: 0,
-          duration: 0.25,
-          ease: "linear",
-        })
+        .to("#opening .txtBox p", { opacity: 0, duration: 0.25, ease: "linear"})
         .addLabel("bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        .from("#opening .txtBox h2", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-          delay: 0.4,
-        })
-        .from("#opening .txtBox >span", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-        });
+        .from("#opening .txtBox h2", { opacity: 0, scale: 0.9, duration: 0.8, ease: "linear", delay: 0.4})
+        .from("#opening .txtBox >span", { opacity: 0, scale: 0.9, duration: 0.8, ease: "linear"});
 
       // mainVisual imgMove
       const imgMove = gsap.to("#mainVisual .imgBox img", {
