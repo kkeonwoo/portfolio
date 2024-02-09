@@ -50,8 +50,7 @@ body {
 }
 
 .imgBox img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #opening {
@@ -112,8 +111,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   top: 20%;
-  -webkit-animation: scrollAni 2s ease infinite forwards;
-          animation: scrollAni 2s ease infinite forwards;
+  animation: scrollAni 2s ease infinite forwards;
 }
 #opening .scrollAni .arrowDown {
   display: flex;
@@ -122,16 +120,13 @@ body {
 #opening .scrollAni .arrowDown span {
   line-height: 0.5;
   font-size: 24px;
-  -webkit-animation: arrowDownAni 2s linear infinite forwards;
-          animation: arrowDownAni 2s linear infinite forwards;
+  animation: arrowDownAni 2s linear infinite forwards;
 }
 #opening .scrollAni .arrowDown span:nth-child(2) {
-  -webkit-animation-delay: 0.75s;
-          animation-delay: 0.75s;
+  animation-delay: 0.75s;
 }
 #opening .scrollAni .arrowDown span:nth-child(3) {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  animation-delay: 1.5s;
 }
 #opening .txtBox {
   position: absolute;
@@ -258,8 +253,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-right: 5px solid #fff;
-  -webkit-animation: cursorAni 1s ease-in-out infinite forwards;
-          animation: cursorAni 1s ease-in-out infinite forwards;
+  animation: cursorAni 1s ease-in-out infinite forwards;
 }
 
 #strength .inner {
@@ -272,8 +266,7 @@ body {
   left: 50%;
   top: 53%;
   transform: translate(-50%, -50%);
-  -webkit-animation: bracketAni 10s ease infinite backwards;
-          animation: bracketAni 10s ease infinite backwards;
+  animation: bracketAni 10s ease infinite backwards;
 }
 #strength .inner .bg .imgBox {
   width: 100%;
@@ -351,6 +344,7 @@ body {
   background-color: #000;
 }
 #portfolio .swiper-wrapper .swiper-slide {
+  width: 33.33%;
   text-align: center;
   position: relative;
 }
@@ -408,6 +402,9 @@ body {
   left: 50%;
   transition: bottom 0.3s ease-in-out;
   transform: translateX(-50%);
+}
+#portfolio .swiper-wrapper .swiper-slide .imgBox img {
+  height: 100%;
 }
 #portfolio .pagination {
   z-index: 10;
@@ -497,18 +494,15 @@ body {
   z-index: 2;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
-  -webkit-animation: moveIcon 12s ease infinite forwards;
-          animation: moveIcon 12s ease infinite forwards;
+  animation: moveIcon 12s ease infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(2):before {
-  -webkit-animation: moveIcon 11s ease 0.25s infinite forwards;
-          animation: moveIcon 11s ease 0.25s infinite forwards;
+  animation: moveIcon 11s ease 0.25s infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(3):before {
-  -webkit-animation: moveIcon 12s ease 0.75s infinite forwards;
-          animation: moveIcon 12s ease 0.75s infinite forwards;
+  animation: moveIcon 12s ease 1.5s infinite forwards;
   z-index: 3;
 }
 #contact .inner .txtBox address dl:nth-child(1):before {
@@ -563,7 +557,11 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: invert(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -580,20 +578,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-@-webkit-keyframes scrollAni {
-  0% {
-    top: 5%;
-    opacity: 0;
-  }
-  10% {
-    top: 10%;
-    opacity: 1;
-  }
-  100% {
-    top: 50%;
-    opacity: 0;
-  }
+#mousePointer .txt {
+  opacity: 0;
+  color: #000;
+  background-color: inherit;
+  font-size: 16px;
+  backdrop-filter: invert(80%);
+  transition: opacity 0.4s;
 }
 
 @keyframes scrollAni {
@@ -610,20 +601,6 @@ body {
     opacity: 0;
   }
 }
-@-webkit-keyframes arrowDownAni {
-  0% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    opacity: 1;
-    color: rgb(255, 255, 255);
-  }
-  100% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.2);
-  }
-}
 @keyframes arrowDownAni {
   0% {
     opacity: 0;
@@ -638,31 +615,12 @@ body {
     color: rgba(255, 255, 255, 0.2);
   }
 }
-@-webkit-keyframes cursorAni {
-  0% {
-    border-color: transparent;
-  }
-  100% {
-    border-color: #fff;
-  }
-}
 @keyframes cursorAni {
   0% {
     border-color: transparent;
   }
   100% {
     border-color: #fff;
-  }
-}
-@-webkit-keyframes bracketAni {
-  0% {
-    top: 48%;
-  }
-  50% {
-    top: 53%;
-  }
-  100% {
-    top: 48%;
   }
 }
 @keyframes bracketAni {
@@ -674,17 +632,6 @@ body {
   }
   100% {
     top: 48%;
-  }
-}
-@-webkit-keyframes moveIcon {
-  0% {
-    transform: translateY(-40%);
-  }
-  50% {
-    transform: translateY(-60%);
-  }
-  100% {
-    transform: translateY(-40%);
   }
 }
 @keyframes moveIcon {
