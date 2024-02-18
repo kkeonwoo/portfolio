@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <title>LEE KEON WOO's PORTFOLIO</title>
     <!-- link-favicon -->
-    <link rel="shortcut icon" href="../images/common/nc644-favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/common/favicon.png" type="image/x-icon" />
+    <!-- link-thumbnail -->
+    <meta property="og:url" content="https://file-keonwoolee-portfolio.netlify.app/html/" />
+    <meta property="og:title" content="이건우 - 포트폴리오" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://file-keonwoolee-portfolio.netlify.app/images/common/link-thumbnail.png" />
+    <meta property="og:description" content="나를 채우는 < : 빈칸 >" />
     <!-- link-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,6 +35,7 @@
     <script src="../js/greensock/CSSRulePlugin.min.js"></script>
     <script src="../js/greensock/ScrollTrigger.min.js"></script>
     <script src="../js/greensock/TextPlugin.min.js"></script>
+    <script src="../js/greensock/ScrollToPlugin.min.js"></script>
     <script src="../js/swiper-bundle.min.js"></script>
   </head>
   <body>
@@ -39,16 +46,21 @@
         <h2 class="blind">gnb</h2>
         <ul class="list">
           <li class="click">
-            <a href="#" class="depth01"> ABOUT ME </a>
+            <button id="#mainVisual" class="depth01">ABOUT ME</button>
           </li>
           <li>
-            <a href="#" class="depth01"> PORTFOLIO </a>
+            <button id="#portfolio" class="depth01">PORTFOLIO</button>
           </li>
           <li>
-            <a href="#" class="depth01"> CONTACT </a>
+            <button id="#contact" class="depth01">CONTACT</button>
           </li>
         </ul>
       </nav>
+      <div class="btnAll">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <span id="ball"></span>
     </header>
     <!-- //header -->
@@ -56,7 +68,7 @@
     <main id="main">
       <!-- opening -->
       <section id="opening">
-        <div class="rect"></div>
+        <!-- <div class="rect"></div> -->
         <div class="scrollAni">
           <span class="mouse"></span>
           <div class="arrowDown">
@@ -66,13 +78,16 @@
           </div>
         </div>
         <div class="txtBox">
-          <p><span>매일 분석과 학습을 통한 성장이 기록된</span></p>
+          <p>
+            <span>매일 분석과 학습을 통한 <span class="break"></span> 성장이 기록된</span>
+          </p>
           <h2><span>F I L E</span></h2>
-          <span>PORTFOLIO FOUNDED IN LEE's ESSENTIAL</span>
+          <span>PORTFOLIO FOUNDED IN <span class="break"></span> LEE's ESSENTIAL</span>
         </div>
       </section>
+      <!-- //opening -->
       <!-- mainVisual -->
-      <section id="mainVisual" class="section">
+      <section id="mainVisual" class="section section1">
         <div class="inner">
           <div class="titleBox">
             <h2 class="title"><strong>ABOUT</strong></h2>
@@ -80,7 +95,7 @@
           <div class="txtBox">
             <h3 class="title">
               <span>나를 채우는 < <strong>: 빈칸</strong> ></span>
-            </h2>
+            </h3>
             <p class="desc">
               빈칸은 비어있는 공간이자 동시에 <strong>채울 수 있는 공간</strong>을 의미합니다. <br />
               개발자가 되기 위한 <strong>빈칸을 여백 없이 채우고 있는 이건우</strong>입니다.
@@ -97,14 +112,38 @@
           </div>
         </div>
       </section>
-      <!-- mainVisual -->
+      <!-- //mainVisual -->
       <!-- aboutMe -->
+      <section id="aboutMe" class="section">
+        <div class="inner">
+          <div class="titleBox">
+            <h2 class="title"><strong>ABOUT ME</strong></h2>
+          </div>
+          <div class="contents">
+            <div class="txtBox">
+              <dl>
+                <dt>ACTIVITY</dt>
+                <dd><strong>TIS 정보기술교육센터</strong> | 퍼블리셔 & 프론트엔드 개발자 양성 과정 수료</dd>
+              </dl>
+              <dl>
+                <dt>EDUCATION</dt>
+                <dd>중앙대학교 산업디자인학과 졸업</dd>
+              </dl>
+            </div>
+            <!-- <div class="imgBox">
+              <img src="../images/main/프로필 흑백.jpg" alt="" />
+            </div> -->
+          </div>
+        </div>
+      </section>
+      <!-- //aboutMe -->
+      <!-- strength -->
       <section id="strength" class="section">
         <div class="inner">
           <div class="bg">
             <div class="imgBox">
-              <img src="../images/main/_Curly_Bracket_Open0000.png" alt="">
-              <img src="../images/main/_Curly_Bracket_Close0000.png" alt="">
+              <img src="../images/main/_Curly_Bracket_Open0000.png" alt="" />
+              <img src="../images/main/_Curly_Bracket_Close0000.png" alt="" />
             </div>
           </div>
           <div class="titleBox">
@@ -114,7 +153,9 @@
             <div class="contentsBg">
               <span class="func">function <em>mySkillsPercent</em> ( <strong></strong> )</span>
               <span class="return">
-                { <br> <em>return</em> <br> }
+                { <br />
+                <em>return</em> <br />
+                }
               </span>
             </div>
             <ul class="props">
@@ -138,73 +179,451 @@
           </div>
         </div>
       </section>
-      <!-- //aboutMe -->
-      <section id="portfolio" class="section">
+      <!-- //strength -->
+      <!-- portfolio -->
+      <section id="portfolio" class="section section2">
         <ul class="swiper-wrapper">
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">1</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>644</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing scrollTrigger
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://644.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/644" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">2</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title">
+                <strong
+                  >NAVER <br />
+                  BAND</strong
+                >
+              </h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing scrollTrigger
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://naver-band.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/naver-band" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">3</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>SAMSUNG CNT</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing responsive web
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://samsungcnt.netlify.app" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/samsungcnt" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">4</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>HAUTERRE</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing fullpage, responsive web
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="http://kwlee1324.dothome.co.kr/hauterre" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/hauterre" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
             </div>
           </li>
           <li class="swiper-slide">
             <div class="txtBox">
               <span class="listNum">5</span>
-              <h2 class="title"><strong>PROJECT</strong></h2>
-              <p class="desc">DESC ABOUT PROJECT</p>
-              <p class="usedTool">tool</p>
+              <h2 class="title"><strong>HITOP</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing responsive web, swiper
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
             </div>
             <div class="imgBox">
               <img src="../images/main/arrow_down.png" alt="" />
             </div>
+            <div class="btnAll">
+              <button>
+                <a href="http://kwlee1324.dothome.co.kr/hitop" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/hitop" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
           </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">6</span>
+              <h2 class="title"><strong>SOFTCOMPANY</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing responsive web
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="http://kwlee1324.dothome.co.kr/softcompany" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/softcompany" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">7</span>
+              <h2 class="title"><strong>ITRONICS</strong></h2>
+              <p class="desc">
+                WEBSITE CLONE CODING <br />
+                for studing responsive web, swiper
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="http://kwlee1324.dothome.co.kr/itronics" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/itronics" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">8</span>
+              <h2 class="title"><strong>CAR</strong></h2>
+              <p class="desc">
+                TOY PROJECT <br />
+                for studing json, css 3D-effect
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://toyproject-car.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/car" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">9</span>
+              <h2 class="title"><strong>TOTTENHAM</strong></h2>
+              <p class="desc">
+                TOY PROJECT <br />
+                for studing json, isotope
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://tottenham-card.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/tottenham" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">10</span>
+              <h2 class="title"><strong>MOVIE APP</strong></h2>
+              <p class="desc">
+                REACT TOY PROJECT <br />
+                for studing react
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/logoReact.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://movie-ranking-app.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/movie-app" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <!-- <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">11</span>
+              <h2 class="title"><strong>VOCA APP</strong></h2>
+              <p class="desc">
+                REACT TOY PROJECT <br />
+                for studing react
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/logoReact.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://voca-app.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/voca" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li> -->
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">11</span>
+              <h2 class="title"><strong>DIARY APP</strong></h2>
+              <p class="desc">
+                REACT TOY PROJECT <br />
+                for studing react
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/logoReact.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://mydiary-app.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/diary-app" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <!-- <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">13</span>
+              <h2 class="title"><strong>G-MARKET</strong></h2>
+              <p class="desc">
+                NODE JS, CRAWLING TOY PROJECT <br />
+                for studing
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/node-js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://gmarket-crawling.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/crawling" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li> -->
+          <!-- <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">13</span>
+              <h2 class="title"><strong>NAVER BOOK</strong></h2>
+              <p class="desc">
+                NODE JS, NAVER-API TOY PROJECT <br />
+                for studing
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/node-js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://naverbook.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/naver-book" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li>
+          <li class="swiper-slide">
+            <div class="txtBox">
+              <span class="listNum">14</span>
+              <h2 class="title"><strong>NAVER PAPAGO</strong></h2>
+              <p class="desc">
+                NODE JS, NAVER-API TOY PROJECT <br />
+                for studing
+              </p>
+              <div class="usedTool">
+                <div class="imgBox">
+                  <img src="../images/main/html-5.png" alt="" />
+                  <img src="../images/main/css-3.png" alt="" />
+                  <img src="../images/main/js.png" alt="" />
+                  <img src="../images/main/node-js.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="imgBox">
+              <img src="../images/main/arrow_down.png" alt="" />
+            </div>
+            <div class="btnAll">
+              <button>
+                <a href="https://naver-papago.netlify.app/" class="btn" target="_blank"><img src="../images/main/online.png" alt="" /></a>
+              </button>
+              <button>
+                <a href="https://github.com/kkeonwoo/naver-papago" class="btn" target="_blank"><img src="../images/main/git.png" alt="" /></a>
+              </button>
+            </div>
+          </li> -->
         </ul>
-        <div class="pagination">
-        </div>
+        <div class="pagination"></div>
         <div class="btns">
           <button class="btn prev material-icons">chevron_left</button>
           <button class="btn next material-icons">chevron_right</button>
         </div>
       </section>
-      <section id="contact" class="section">
+      <!-- //portfolio -->
+      <!-- contact -->
+      <section id="contact" class="section section4">
         <div class="inner">
           <div class="titleBox">
             <h2 class="title"><strong>CONTACT</strong></h2>
@@ -233,11 +652,10 @@
           </div>
         </div>
       </section>
-      <!-- //opening -->
+      <!-- //contact -->
     </main>
     <!-- //main -->
     <div id="mousePointer">
-      <span class="txt">CLICK 3</span>
     </div>
     <!-- script -->
     <script>
@@ -263,9 +681,11 @@
       // });
 
       // gnb event
-      $("#gnb .list >li").on("click", function (e) {
-        e.preventDefault();
-        $(this).addClass("click").siblings().removeClass("click");
+      $("#gnb .list >li").each(function (idx, item) {
+        $(item).on("click", function (e) {
+          $(item).addClass("click").siblings().removeClass("click");
+          gsap.to(window, { duration: 1, scrollTo: { y: ".section" + (idx + 1), autoKill: true}});
+        });
       });
       $("#gnb .list >li").on("mouseenter", function () {
         const tx = $(this).offset().left + $(this).width() / 2;
@@ -283,6 +703,16 @@
           duration: 0.5,
         });
       });
+      // gnb mobile btn click
+      $("#header .btnAll").on("click", function () {
+        $(this).toggleClass("on");
+        if ($(this).hasClass("on")) {
+          gsap.to("#gnb", { display: "block", opacity: 1, y: 0, duration: 0.5, ease: "back"});
+        } else {
+          $(this).removeClass("on");
+          gsap.to("#gnb", { display: "none", opacity: 0, y: -300, duration: 0.5, ease: "back.in"});
+        }
+      });
 
       // mousePointer
       $(window).on("mousemove", function (e) {
@@ -292,86 +722,74 @@
       });
 
       // opening event
-      for (let i = 0; i < 312; i++) {
-        if (i < 312 / 3) {
-          $(".rect").append(`<span class="hover row01"></span>`);
-        } else if (i >= 312 / 3 && i < 312 - 312 / 3) {
-          $(".rect").append(`<span class="hover row02"></span>`);
-        } else {
-          $(".rect").append(`<span class="hover row03"></span>`);
-        }
-      }
-      
-      //mousePointer transform
-      $('.rect .hover').on('mouseover', function() {
-        gsap.to('#mousePointer', { 'width': 70, 'height': 70})
-        gsap.to('#mousePointer .txt', {'opacity': 1})
-      })
-
-      $('.rect .hover').on('mouseleave', function() {
-        gsap.to('#mousePointer .txt', {'opacity': 0})
-        gsap.to('#mousePointer', { 'width': 20, 'height': 20})
-      })
-      const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
-      let clickCount = 0;
-      $(".rect span").on("click", function (e) {
-        if($(e.target).hasClass("clicked")){
-          console.log("false");
-        } else {
-          clickCount++;
-          $('#mousePointer .txt').text(`CLICK ${3 - clickCount}`)
-          $(e.target).addClass("clicked")
-          gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
-          if (clickCount >= 3) {
-            // 애니메이션 시작
-            const openingTL = gsap.timeline();
-            openingTL
-              .to(".rect span", {
-                backgroundColor: (idx, item) => {
-                  return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
-                },
-                stagger: { each: 0.01, from: "random" },
-                onUpdate: () => {
-                  $(".rect span").removeClass("hover");
-                },
-              })
-              .addLabel("rotate")
-              .to(
-                ".rect .row01",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(
-                ".rect .row03",
-                {
-                  rotationY: 180,
-                  stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
-                },
-                "rotate"
-              )
-              .to(".rect .row02", {
-                rotationY: 180,
-                stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
-              })
-              .to(".rect span", {
-                rotateY: -180,
-                backgroundColor: "#111",
-                stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
-                onComplete: () => {
-                  const openingEndTL = gsap.timeline();
-                  openingEndTL
-                    .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
-                    .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
-                    .to("body", { overflowY: "scroll" });
-                },
-              });
-          }
-        }
-      });
+      // for (let i = 0; i < 352; i++) {
+      //   if (i <= 32 * 3) {
+      //     $(".rect").append(`<span class="hover row01"></span>`);
+      //   } else if (i > 32 * 3 && i <= 32 * 7) {
+      //     $(".rect").append(`<span class="hover row02"></span>`);
+      //   } else {
+      //     $(".rect").append(`<span class="hover row03"></span>`);
+      //   }
+      // }
+      // const colorArray = ["#aff5b4", "#7ee787", "#56d364", "#3fb950", "#2ea043", "#238636", "#196c2e", "#0f5323", "#033a16", "#04260f"];
+      // let clickCount = 0;
+      // $(".rect span").on("click", function (e) {
+      //   if ($(e.target).hasClass("clicked")) {
+      //     console.log("false");
+      //   } else {
+      //     clickCount++;
+      //     $(e.target).addClass("clicked");
+      //     gsap.to($(e.target), { backgroundColor: colorArray[Math.floor(Math.random() * 9)], yoyo: true, repeat: 8, ease: "elastic.inOut(0.3,0.5)", duration: 0.2 });
+      //     if (clickCount >= 3) {
+      //       // 애니메이션 시작
+      //       const openingTL = gsap.timeline();
+      //       openingTL
+      //         .to(".rect span", {
+      //           backgroundColor: (idx, item) => {
+      //             return colorArray[idx % Math.floor(Math.random() * 9 + 1)];
+      //           },
+      //           stagger: { each: 0.01, from: "random" },
+      //           onUpdate: () => {
+      //             $(".rect span").removeClass("hover");
+      //           },
+      //         })
+      //         .addLabel("rotate")
+      //         .to(
+      //           ".rect .row01",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, from: "end", grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(
+      //           ".rect .row03",
+      //           {
+      //             rotationY: 180,
+      //             stagger: { each: 0.02, grid: [7, 26], ease: "linear", axis: "x" },
+      //           },
+      //           "rotate"
+      //         )
+      //         .to(".rect .row02", {
+      //           rotationY: 180,
+      //           stagger: { each: 0.02, from: "edges", grid: [7, 26], ease: "linear", axis: "x" },
+      //         })
+      //         .to(".rect span", {
+      //           rotateY: -180,
+      //           backgroundColor: "#111",
+      //           stagger: { amount: 1, from: "end", grid: [16, 26], ease: "none", axis: "x" },
+      //           onComplete: () => {
+      //             const openingEndTL = gsap.timeline();
+      //             openingEndTL
+      //               .to(".rect span", { display: "none", opacity: 0, ease: "linear", delay: 0.1, duration: 0.8 })
+      //               .to("#opening .txtBox", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("#opening .scrollAni", { opacity: 1, ease: "linear", duration: 0.25 })
+      //               .to("body", { overflowY: "scroll" });
+      //           },
+      //         });
+      //     }
+      //   }
+      // });
 
       // openingTxt timeline
       const openingTxtTL = gsap.timeline({
@@ -388,35 +806,25 @@
             $("#header").addClass("on");
           },
           onEnterBack: () => {
-            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear" });
             $("#header").removeClass("on");
+            if (!$("#header").hasClass("on")) {
+              $("#header .btnAll").removeClass("on");
+              gsap.to("#gnb", { display: "none", opacity: 0, y: -300, duration: 0.5, ease: "back.in"});
+            }
+            gsap.to("#opening", { display: "block", opacity: 1, duration: 0.3, ease: "linear"});
           },
         },
       });
+
       openingTxtTL
         .to("#opening .scrollAni span", { opacity: 0, duration: 0.25, ease: "linear" })
         .to("#opening .scrollAni .arrowDown", { opacity: 0, duration: 0.25, ease: "linear" })
-        .to("#opening .txtBox p", {
-          opacity: 0,
-          duration: 0.25,
-          ease: "linear",
-        })
+        .to("#opening .txtBox p", { opacity: 0, duration: 0.25, ease: "linear"})
         .addLabel("bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::before"), { cssRule: { opacity: 1, left: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
         .to(CSSRulePlugin.getRule("#opening .txtBox::after"), { cssRule: { opacity: 1, right: "-10%" }, duration: 1, ease: "back.in" }, "bracket")
-        .from("#opening .txtBox h2", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-          delay: 0.4,
-        })
-        .from("#opening .txtBox >span", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.8,
-          ease: "linear",
-        })
+        .from("#opening .txtBox h2", { opacity: 0, scale: 0.9, duration: 0.8, ease: "linear", delay: 0.4})
+        .from("#opening .txtBox >span", { opacity: 0, scale: 0.9, duration: 0.8, ease: "linear"});
 
       // mainVisual imgMove
       const imgMove = gsap.to("#mainVisual .imgBox img", {
@@ -429,17 +837,15 @@
         stagger: { each: Math.round(Math.random() * (2 - 1) + 1) },
       });
       $("#mainVisual .imgBox").on("mouseenter", function () {
-        const mainVisualImgTL = gsap.timeline();
-        mainVisualImgTL
-        .to("#mainVisual img", {
+        gsap.to("#mainVisual img", {
           margin: 0,
           duration: 2,
           ease: "back.in(1.7)",
           onUpdate: () => {
             imgMove.pause();
           },
-        })
-        .to("#mainVisual .text",{opacity:1,text:"Lee KeonWoo",duration:4})
+        });
+        gsap.to("#mainVisual .text", { opacity: 1, text: "Lee KeonWoo", duration: 4 });
       });
       $("#mainVisual .imgBox").on("mouseleave", function () {
         imgMove.restart();
@@ -464,324 +870,392 @@
           scrub:1,
           // markers:true,
           toggleActions: "restart pause resume pause",
-        }
-      })
-      mainVisualTL.from("#mainVisual .titleBox .title",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:0.25,
-        delay:1
-      })
-      .from("#mainVisual .txtBox .title",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:0.25,
-      })
-      .from("#mainVisual .txtBox .desc",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:0.25
-      })
-      .from("#mainVisual .contents",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:0.25,
-      })
-      .to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
-            cssRule: { scaleX: 0, transformOrigin:"100% 50%" },
-            duration: $(this).width() / 2000,
-            ease: "sine.in",
-            delay:0.2,
-            stagger: {
-              each: 0.2,
-            },
-          })
-      .from("#mainVisual",{duration:1})
-      .to("#mainVisual .titleBox",{
-        opacity:0,
-        x:-200,
-        duration:1,
-        ease:"back.in"
-      })
-      .addLabel("endMain")
-      .to("#mainVisual .txtBox",{
-        opacity:0,
-        x:-200,
-        duration:1,
-        ease:"back.in"
-      },"endMain")
-      .to("#mainVisual .contents",{
-        opacity:0,
-        x:200,
-        duration:1,
-        ease:"back.in"
-      },"endMain")
+        },
+      });
+      mainVisualTL
+        .from("#mainVisual .titleBox .title", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 0.25,
+          delay: 1,
+        })
+        .from("#mainVisual .txtBox .title", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 0.25,
+        })
+        .from("#mainVisual .txtBox .desc", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 0.25,
+        })
+        .from("#mainVisual .contents", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 0.25,
+        })
+        .to(CSSRulePlugin.getRule("#mainVisual .txtBox strong::before"), {
+          cssRule: { scaleX: 0, transformOrigin: "100% 50%" },
+          duration: $(this).width() / 2000,
+          ease: "sine.in",
+          delay: 0.2,
+          stagger: {
+            each: 0.2,
+          },
+        })
+        .from("#mainVisual", { duration: 1 })
+        .to("#mainVisual .titleBox", {
+          opacity: 0,
+          x: -200,
+          duration: 1,
+          ease: "back.in",
+        })
+        .addLabel("endMain")
+        .to(
+          "#mainVisual .txtBox",
+          {
+            opacity: 0,
+            x: -200,
+            duration: 1,
+            ease: "back.in",
+          },
+          "endMain"
+        )
+        .to(
+          "#mainVisual .contents",
+          {
+            opacity: 0,
+            x: 200,
+            duration: 1,
+            ease: "back.in",
+          },
+          "endMain"
+        );
+
+      // aboutMe Timeline
+      const aboutMeTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#aboutMe",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          pin: true,
+          onLeave: () => {
+            gsap.to("#aboutMe", {
+              x: -1920,
+              opacity: 0,
+              duration: 1,
+              ease: "back.in",
+            });
+          },
+          onEnterBack: () => {
+            gsap.to("#aboutMe", {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "back.in",
+            });
+          },
+        },
+      });
+      aboutMeTL
+        .from("#aboutMe .titleBox", {
+          opacity: 0,
+          y: 100,
+          duration: 0.5,
+        })
+        .from("#aboutMe dl:nth-child(1) dt", {
+          opacity: 0,
+          x: 100,
+          duration: 0.25,
+        })
+        .from("#aboutMe dl:nth-child(1) dd", {
+          opacity: 0,
+          x: 100,
+          duration: 0.25,
+        })
+        .from("#aboutMe dl:nth-child(2) dt", {
+          opacity: 0,
+          x: -100,
+          duration: 0.25,
+        })
+        .from("#aboutMe dl:nth-child(2) dd", {
+          opacity: 0,
+          x: -100,
+          duration: 0.25,
+        })
+        .to("#aboutMe", {
+          x: 1920,
+          duration: 1,
+          ease: "back.in",
+        });
 
       // strength count
-        const html ={num:100};
-        const css = {num:100};
-        const js = {num:80};
-        const node = {num:70};
-        const ajax = {num:70};
-        const mongo = {num:75};
-        const react = {num:65};
+      const html = { num: 100 };
+      const css = { num: 100 };
+      const js = { num: 80 };
+      const node = { num: 70 };
+      const ajax = { num: 70 };
+      const mongo = { num: 75 };
+      const react = { num: 65 };
 
       // strength Timeline
       const strengthTL = gsap.timeline({
-        scrollTrigger:{
-          trigger:"#strength",
-          start:"top top",
-          end:"bottom top",
-          pin:true,
-          scrub:1,
+        scrollTrigger: {
+          trigger: "#strength",
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          scrub: 1,
           // markers:true,
-          onLeave:()=>{
-            gsap.to("#strength .titleBox",{
-              y:100,
-              opacity:0,
-              ease:"back.in",
-              duration:0.5
-            })
-            gsap.to("#strength .contents",{
-              opacity:0,
-              width:"0%",
-              duration:0.5,
-              ease:"linear"
-            })
-            gsap.to("#strength .bg",{
-              width:"0%",
-              opacity:0,
-              duration:1,
-              ease:"back.in"
-            })
+          onLeave: () => {
+            gsap.to("#strength .titleBox", {
+              y: 100,
+              opacity: 0,
+              ease: "back.in",
+              duration: 0.5,
+            });
+            gsap.to("#strength .contents", {
+              opacity: 0,
+              width: "0%",
+              duration: 0.5,
+              ease: "linear",
+            });
+            gsap.to("#strength .bg", {
+              width: "0%",
+              opacity: 0,
+              duration: 1,
+              ease: "back.in",
+            });
           },
-          onEnterBack:()=>{
-            gsap.to("#strength .titleBox",{
-              y:0,
-              opacity:1,
-              duration:0.5
-            })
-            gsap.to("#strength .contents",{
-              width:"auto",
-              opacity:1,
-              duration:1
-            })
-            gsap.to("#strength .bg",{
-              width:"100%",
-              opacity:1,
-              duration:1
-            })
-          }
-        }
-      })
-      strengthTL.from("#strength .bg",{
-        width:"0%",
-        opacity:0,
-        duration:1,
-        ease:"sine.out"
-      })
-      .from("#strength .titleBox",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:0.3
-      })
-      .from("#strength .contents",{
-        opacity:0,
-        ease:"power2",
-        duration:0.3,
-        delay:0.2
-      })
-      .from("#strength .props li:nth-child(1)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(html,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(1) span").text(Math.round(html.num))
+          onEnterBack: () => {
+            gsap.to("#strength .titleBox", {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+            });
+            gsap.to("#strength .contents", {
+              width: "auto",
+              opacity: 1,
+              duration: 1,
+            });
+            gsap.to("#strength .bg", {
+              width: "100%",
+              opacity: 1,
+              duration: 1,
+            });
+          },
         },
-      })
-      .to("#strength .props li:nth-child(1)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(1) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(2)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(css,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(2) span").text(Math.round(css.num))
-        },
-      })
-      .to("#strength .props li:nth-child(2)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(2) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(3)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(js,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(3) span").text(Math.round(js.num))
-        },
-      })
-      .to("#strength .props li:nth-child(3)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(3) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(4)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(node,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(4) span").text(Math.round(node.num))
-        },
-      })
-      .to("#strength .props li:nth-child(4)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(4) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(5)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(ajax,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(5) span").text(Math.round(ajax.num))
-        },
-      })
-      .to("#strength .props li:nth-child(5)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(5) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(6)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(mongo,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(6) span").text(Math.round(mongo.num))
-        },
-      })
-      .to("#strength .props li:nth-child(6)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(6) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength .props li:nth-child(7)",{
-        y:100,
-        opacity:0,
-        ease:"power2",
-        duration:1,
-      })
-      .from(react,{
-        num:0,
-        duration:5,
-        onUpdate:function(){
-          $("#strength .returnNum li:nth-child(7) span").text(Math.round(react.num))
-        },
-      })
-      .to("#strength .props li:nth-child(7)",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        delay:1,
-        ease:"linear"
-      })
-      .to("#strength .returnNum li:nth-child(7) span",{
-        opacity:0,
-        y:-100,
-        duration:0.25,
-        ease:"linear"
-      })
-      .from("#strength",{
-        duration:5
-      })
-      
+      });
+      strengthTL
+        .from("#strength .bg", {
+          width: "0%",
+          opacity: 0,
+          duration: 1,
+          ease: "sine.out",
+        })
+        .from("#strength .titleBox", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 0.3,
+        })
+        .from("#strength .contents", {
+          opacity: 0,
+          ease: "power2",
+          duration: 0.3,
+          delay: 0.2,
+        })
+        .from("#strength .props li:nth-child(1)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(html, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(1) span").text(Math.round(html.num));
+          },
+        })
+        .to("#strength .props li:nth-child(1)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(1) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(2)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(css, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(2) span").text(Math.round(css.num));
+          },
+        })
+        .to("#strength .props li:nth-child(2)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(2) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(3)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(js, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(3) span").text(Math.round(js.num));
+          },
+        })
+        .to("#strength .props li:nth-child(3)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(3) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(4)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(node, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(4) span").text(Math.round(node.num));
+          },
+        })
+        .to("#strength .props li:nth-child(4)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(4) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(5)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(ajax, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(5) span").text(Math.round(ajax.num));
+          },
+        })
+        .to("#strength .props li:nth-child(5)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(5) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(6)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(mongo, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(6) span").text(Math.round(mongo.num));
+          },
+        })
+        .to("#strength .props li:nth-child(6)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(6) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength .props li:nth-child(7)", {
+          y: 100,
+          opacity: 0,
+          ease: "power2",
+          duration: 1,
+        })
+        .from(react, {
+          num: 0,
+          duration: 5,
+          onUpdate: function () {
+            $("#strength .returnNum li:nth-child(7) span").text(Math.round(react.num));
+          },
+        })
+        .to("#strength .props li:nth-child(7)", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          delay: 1,
+          ease: "linear",
+        })
+        .to("#strength .returnNum li:nth-child(7) span", {
+          opacity: 0,
+          y: -100,
+          duration: 0.25,
+          ease: "linear",
+        })
+        .from("#strength", {
+          duration: 5,
+        });
+
       // portfolio Timeline
       let sections = gsap.utils.toArray("#portfolio .swiper-slide");
       let endX = sections[0].offsetWidth * (sections.length) - $(window).outerWidth();
@@ -818,64 +1292,76 @@
           marginLeft:1000,
           opacity:0
         },
-        duration:5,
-        ease:"ease.inOut",
-      })
-      .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(1)::after"),{
-        cssRule:{
-          width:0,
-        },
-        duration:1,
-        ease:"linear"
-      })
-      .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::before"),{
-        cssRule:{
-          marginLeft:1000,
-          opacity:0
-        },
-        duration:5,
-        ease:"ease.inOut",
-      })
-      .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::after"),{
-        cssRule:{
-          width:0,
-        },
-        duration:1,
-        ease:"linear"
-      })
-      .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::before"),{
-        cssRule:{
-          marginLeft:1000,
-          opacity:0
-        },
-        duration:5,
-        ease:"ease.inOut",
-      })
-       .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::after"),{
-        cssRule:{
-          width:0,
-        },
-        duration:1,
-        ease:"linear"
-      })
-      .from("#contact dt",{
-        opacity:0,
-        y:50,
-        ease:"back.in",
-        duration:0.5,
-        stagger:{
-          each:0.3
-        }
-      })
-      .from("#contact dd",{
-        opacity:0,
-        y:50,
-        ease:"back.in",
-        duration:0.5,
-        stagger:{
-          each:0.3
-        }
-      })
+      });
+      contactTL
+        .from("#contact .titleBox", {
+          opacity: 0,
+          y: 100,
+          duration: 0.25,
+        })
+        .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(1)::before"), {
+          cssRule: {
+            marginLeft: 1000,
+            opacity: 0,
+          },
+          duration: 5,
+          ease: "ease.inOut",
+        })
+        .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(1)::after"), {
+          cssRule: {
+            width: 0,
+          },
+          duration: 1,
+          ease: "linear",
+        })
+        .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::before"), {
+          cssRule: {
+            marginLeft: 1000,
+            opacity: 0,
+          },
+          duration: 5,
+          ease: "ease.inOut",
+        })
+        .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(2)::after"), {
+          cssRule: {
+            width: 0,
+          },
+          duration: 1,
+          ease: "linear",
+        })
+        .from(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::before"), {
+          cssRule: {
+            marginLeft: 1000,
+            opacity: 0,
+          },
+          duration: 5,
+          ease: "ease.inOut",
+        })
+        .to(CSSRulePlugin.getRule("#contact .inner .txtBox address dl:nth-child(3)::after"), {
+          cssRule: {
+            width: 0,
+          },
+          duration: 1,
+          ease: "linear",
+        })
+        .from("#contact dt", {
+          opacity: 0,
+          y: 50,
+          ease: "back.in",
+          duration: 0.5,
+          stagger: {
+            each: 0.3,
+          },
+        })
+        .from("#contact dd", {
+          opacity: 0,
+          y: 50,
+          ease: "back.in",
+          duration: 0.5,
+          stagger: {
+            each: 0.3,
+          },
+        });
     </script>
     <!-- //script -->
   </body>

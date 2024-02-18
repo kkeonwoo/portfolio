@@ -3,8 +3,8 @@
 
 body {
   font-family: "WildernessTypeface-Regular", "Old Standard TT", "Noto Sans KR", "Literata", serif;
-  background-color: #111;
   color: #fff;
+  background-color: #111;
 }
 
 #header {
@@ -13,66 +13,108 @@ body {
   align-items: center;
   height: 80px;
   position: fixed;
-  left: 0;
-  right: 0;
   top: -80px;
+  right: 0;
+  left: 0;
+  z-index: 999;
   padding: 0 50px;
   transition: all 0.4s ease;
-  z-index: 999;
-  backdrop-filter: blur(10px);
   &.on {
     top: 0;
+  }
+  .btnAll {
+    position: relative;
+    width: 30px;
+    height: clamp(13px, 1vw, 20px);
+    display: none;
+    &.on {
+      span {
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+          top: 50%;
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+        &:nth-child(3) {
+          transform: rotate(45deg);
+          top: 50%;
+        }
+      }
+    }
+    span {
+      position: absolute;
+      display: block;
+      right: 0;
+      width: clamp(20px, 1.5vw, 30px);
+      height: 2px;
+      background-color: #fff;
+      &:nth-child(1) {
+        transition: all 0.25s ease-in-out;
+        top: 0;
+      }
+      &:nth-child(1) {
+        top: 50%;
+      }
+      &:nth-child(3) {
+        transition: all 0.25s ease-in-out;
+        top: 100%;
+      }
+    }
   }
 }
 
 #logo {
-  width: 100px;
-  height: 40px;
-  border: 1px solid #fff;
-  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100px;
+  height: 40px;
   line-height: 1;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  z-index: 11;
 }
 
 #gnb {
   .list {
     display: flex;
     > li {
+      position: relative;
       margin-left: 40px;
       color: #999;
-      position: relative;
       transition: all 0.25s ease-in-out;
       &.click {
-        color: #fff;
         font-weight: 500;
+        color: #fff;
       }
       &:hover {
-        color: #fff;
         font-weight: 500;
-        a::before,
-        a::after {
+        color: #fff;
+        button::before,
+        button::after {
           opacity: 1;
         }
       }
-      a {
+      button {
         display: inline-block;
         position: relative;
         padding: 0 10px;
+        font-family: inherit;
+        font-size: 16px;
         &::before {
-          content: " (";
-          @include absCenter(false, true);
           left: 0;
           opacity: 0;
           transition: opacity 0.2s ease-in-out;
+          content: " (";
+          @include absCenter(false, true);
         }
         &::after {
-          content: " )";
-          @include absCenter(false, true);
           right: 0;
           opacity: 0;
           transition: opacity 0.2s ease-in-out;
+          content: " )";
+          @include absCenter(false, true);
         }
       }
     }
@@ -80,16 +122,78 @@ body {
 }
 
 #ball {
-  @include pseudo;
-  background: {
-    image: url("../images/main/Star\ 1.png");
-    position: 50%;
-    size: cover;
-  }
   width: 10px;
   height: 10px;
   top: 20%;
   left: 75%;
   transform: translateX(-50%);
   opacity: 0;
+  @include pseudo;
+  background: {
+    position: 50%;
+    image: url("../images/main/Star\ 1.png");
+    size: cover;
+  }
+}
+
+@media all and (max-width: 1400px) {
+  #header {
+    padding: 0 clamp(30px, 3.5vw, 50px);
+  }
+  #logo {
+    font-size: clamp(14px, 1.1vw, 16px);
+  }
+  #gnb .list > li {
+    margin-left: clamp(20px, 2.8vw, 40px);
+    button {
+      font-size: clamp(14px, 1.1vw, 16px);
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+  #header {
+    height: clamp(50px, 7.8vw, 80px);
+    .btnAll {
+      display: block;
+    }
+  }
+  #logo {
+    width: clamp(70px, 9.7vw, 100px);
+    height: clamp(28px, 3.9vw, 40px);
+  }
+  #gnb {
+    position: fixed;
+    left: 0;
+    top: clamp(50px, 7.8vw, 80px);
+    bottom: 0;
+    right: 0;
+    transform: translateY(-300px);
+    opacity: 0;
+    display: none;
+    .list {
+      background-color: #111;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      > li {
+        margin: clamp(5px, 0.9vw, 10px) 0;
+      }
+    }
+  }
+  #ball {
+    display: none;
+  }
+}
+
+@media all and (max-width: 720px) {
+  #logo {
+    font-size: clamp(12px, 1.9vw, 14px);
+  }
+  #gnb .list > li button {
+    font-size: clamp(12px, 2.2vw, 16px);
+  }
+  #header .btnAll span {
+    height: 1px;
+  }
 }
